@@ -52,15 +52,15 @@ class ResponsesController extends Controller
         $customers = \DB::table('corner01_inputs')
         	    ->select('hash_address', 'time_sec')
                     
-                    ->get();
+                    ->get()->toArray();
        // var_dump($customers);
         //count all addresses in db even with repeats
-       /* $countCust = count($customers);
+        $countCust = count($customers);
         
         //loop in number of customers 37 times
         //make $address array with hash_address of 38 customers
         //array with hash_address as index inicialized 0, highchart requirement
-        for($i=0; $i<=$countGroupCust-1; $i++){
+       /* for($i=0; $i<=$countGroupCust-1; $i++){
          $address=$groupCust[$i]->hash_address;
          $numCust[$address]=0; 
         }
@@ -71,11 +71,11 @@ class ResponsesController extends Controller
         for($i=0; $i<=$countCust-1; $i++){
          $address=$customers[$i]->hash_address;
          $numCust[$address]++;   
-        }
+        }*/
 
-        $data=array("numCustomers"=>$countGroupCust,"customers"=>$groupCust, "phones_id"=>$numCust);*/
+        //$data=array("numCustomers"=>$countGroupCust,"customers"=>$groupCust, "phones_id"=>$numCust);
         return json_encode($customers);
-        
+       
     }
      /*public function chart8(){
         

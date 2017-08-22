@@ -6,40 +6,33 @@
     /* Set gray background color and 100% height */
     .sidenav {
       background-color: #f1f1f1;
-      height: 100%;
     }
         
-    /* On small screens, set height to 'auto' for the grid */
-    @media screen and (max-width: 767px) {
-      .row.content {height: auto;} 
-    }
+ /* On small screens, set height to 'auto' for the grid */
+@media screen and (max-width: 767px) {
+    .row.content {height: auto;} 
+}
 
-
-body{
-    
+body{   
     background-repeat: repeat;
     color:gray;
     z-index: 0;
     font-family: 'Open Sans', sans-serif;
 }
-
 .section-heading{
       font-family: 'Acme', sans-serif;
 /*    font-family: 'Sansita', sans-serif;*/
 }
-
 .sub-heading{
       font-family: 'Acme', sans-serif;
 /*    font-family: 'Sansita', sans-serif;*/
 }
-
 h2{
     font-size: 34px;
     font-weight: 500;
     line-height: 60px;
     color: blue;
 }
-
 h4{
     font-size: 24px;
     font-weight: 400;
@@ -47,195 +40,15 @@ h4{
     color: blue;
     text-align: left;
 }
-
 h5{
     font-size: 14px;
     font-weight: 100;
     text-align: left;  
 }
 
-
-.media{
-    padding-right: 0px;
-    padding-top: 10px;
-}
-
-.media .icons-group a{
-    color: white;
-    margin-left: 8px;
-    margin-right: 8px;
-    font-size: 1.4em;
-}
-
-.icons-group a:hover, #links a:hover{
-    color: #9acd32;
-    text-decoration: none;  
-}
-
 /*---------------------------header-index------*/
 
-.logo_index{
-    margin-top: 60px;
-    width: 220px;
-    height: auto;
-}
-
-.header-media{
-    padding-right: 30px;
-    padding-top: 30px;
-}
-
-.header-media .header-icons a{
-    color: white;
-    margin-left: 8px;
-    margin-right: 8px;
-    font-size: 1.4em;
-}
-
-.header-media .header-icons a:hover{
-    color: #9acd32;
-    text-decoration: none;
-}
-
-.hd-media-index{
-    padding-right: 30px;
-    padding-top: 30px;
-}
-
-.hd-media-index .hd-icons-index a{
-    color: white;
-    margin-left: 8px;
-    margin-right: 8px;
-    font-size: 1.4em;
-}
-
-.hd-media-index .hd-icons-index a:hover{
-    color: #9acd32;
-    text-decoration: none;
-}
-
-#
-
-.bigIcons {
-    width: 60px;
-    height: auto;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    opacity: 1; 
-    filter: alpha(opacity=100);
-}
-
-.bigIcons:hover{
-    opacity: 0.4; 
-    filter: alpha(opacity=30);
-}
-
-
-/*-----------------------home page--*/
-
-#links a{
-    color: white;
-}
-
-#links ul li{
-    list-style: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.upcomingShowsTable th{
-    text-align: center;
-}
-
-.upcomingShowsTable td{
-    text-align: center;
-}
-
 /*-----------pages--------*/
-.logo_header{
-    margin-top: 40px;
-    width: 140px;
-    height: auto;
-}
-
-#bg_hd_game{
-    background-image: url("../images/game.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 300px;
-}
-
-#bg_hd_contact{
-    background-image: url("../images/contact.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 300px;
-}
-
-
-#bg_hd_releases{
-    background-image: url("../images/releases.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 300px;
-}
-
-
-
-.form-contact{
-    background-color: hsla(186, 96%, 98%, 0.2);
-    padding: 60px 60px 80px 60px;
-    clear:both;
-    margin-top: 20px;
-    margin-bottom: 50px;
-}
-
-form{
-    padding-bottom: 15px;
-}
-
-.btn-primary.btn-submit{
-    background: none;
-    background-color: hsla(243, 96%, 14%, 0.5);
-    border: 1px solid #fff;
-    color: #fff;
-}
-
-.btn-primary.btn-submit:hover{
-   background-color: hsla(300, 96%, 18%, 0.3);
-   border-color: #fff;
-}
-
-.help-block{
-    color:#C0C0C0;
-}
-
-.alert {
-    background: none;
-    background-color: hsla(243, 96%, 14%, 0.5);
-    border-color: #fff;
-    color: #fff;
-}
-/*---------------------standard  color containers--*/
-.section-nocolor{
-    padding-bottom: 60px;
-    padding-top: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.section-purple{
-    background-color: hsla(272, 100%, 14%, 0.2);
-    color: white;
-    padding-bottom: 60px;
-    padding-top: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
 .section-blue{
     background-color: hsla(200, 96%, 26%, 0.3);
     color: white;
@@ -244,135 +57,17 @@ form{
     padding-left: 30px;
     padding-right: 30px;
 }
-
-.section-dark-blue{
-    background-color: hsla(243, 96%, 14%, 0.2);
-    color: white;
-    padding-bottom: 60px;
-    padding-top: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.section-pink{
-    background-color: hsla(300, 96%, 18%, 0.3);
-    color: white;
-    padding-bottom: 60px;
-    padding-top: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.section-red{
-    background-color: hsla(325, 96%, 12%, 0.2);
-    color: white;
-    padding-bottom: 60px;
-    padding-top: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.section-white{
-    background-color: hsla(186, 96%, 98%, 0.2);
-    color: white;
-    padding-bottom: 60px;
-    padding-top: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-
-
-/*------------------------------releases page---*/
-
-
-.releases-wrapper {
-    padding-top: 16px;
-    position: relative;
-    overflow: hidden;
-    margin-bottom:10px;
-}
-
-.releases-wrapper img {
-    max-width:100% !important;
-    clear:both;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    padding:5px;
-    border: 1px solid white;
-}
-
-.releases-wrapper:hover img {
-    -webkit-transform:scale(1.1);
-    transform:scale(1.1);
-}
-
- li.song { 
-    float:left; 
-    width:70%;
-    font-size: 12px;
-    list-style-type:none;
-    text-align: left;
-    padding-left: 0px;
-
-}
-  li.time { 
-      float:left; 
-      width:15%;
-      font-size: 12px;
-      list-style-type:none;
-      padding-top: 0px;
-      padding-bottom: 0px;
-  }
-
 /*----------------------------footer--*/
-footer {
-    margin-top: 80px;
-    margin-bottom: 40px;
-    font-size: 12px;
-}
-
 h5{
     font-weight: bold;
     font-size: 14px;
 }
-
-.footer-links{
-    list-style-type:none;
-    padding-left:0px;
-    margin-left:2px;
-}
-
-.footer-links tbody td{
-    line-height: 22px;
-    padding-left: 20px;
-    font-size: 12px;
-}
-
-.align-title, .ft-contact p, .ft-contact h5{
-    padding-left: 20px;
-}
-
-.footer-links tbody td a, .phone-link{
-    color:#fff;
-    text-decoration: none;
-}
-
-.phone-link:hover, .footer-media a:hover, .footer-links tbody td a:hover{
-    color: #9acd32;
-    text-decoration: none;
-}
-.footer-icon, .links-icons{
-    margin-right: 10px;
-}
-
 .copyright {
     min-height:40px;
     background-color: #000000;
     padding-top: 12px;
     padding-bottom: 15px;
 }
-
 .copyright p {
     color:grey;
     text-align: center;
@@ -380,538 +75,104 @@ h5{
     margin-bottom:0px;
     font-size: 12px;
 }
-
-.footer-media a{
-    color: white;
-    text-align: left;
-    margin: 15px;
-    padding-left: 15px;
-}
-
-
-/*----------------------------------Table news*/
-
-#container_ft{
-    padding-top:5px;
-}
-
-
-
-
 /*111111////////////////////////////////////////////////////device-width 319px max//*/
 @media only screen and (max-device-width : 319px)
 {
-    .section-nocolor,.section-blue, .section-dark-blue, .section-pink, .section-purple, 
-    .section-red, .section-white{
-        padding-bottom: 20px;
-        padding-top: 10px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-    
-    .hovereffect {
-        width: 100%;
-        min-height: 90px;
-    }
-    
-    #bg_hd_game, #bg_hd_contact, #bg_hd_releases{
-        min-height: 90px;
-    }
-    
     body{
         font-size: 12px;
-    }
-    
+    }   
     h2{
         font-size: 20px;
         font-weight: 300;
         line-height: 50px;
     }
-
     h4{
         font-size: 20px;
         font-weight: 300;
         line-height: 25px;
     }
-
     h5{
         font-size: 12px;
         text-align: left;  
     }
-    
-    footer {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        font-size: 11px;
-    }
-    
-    
-    #intro{
-        background-image: url('../images/bg_03.png');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: 480px;
-    }
-    
     .copyright p {
         font-size: 9px;
         padding-top: 3px;
     }
-
-    .header-media{
-        display: none;
-    }
-    
-    .hd-media-index{
-        padding-right: 4px;
-        padding-top: 8px;
-    }
-
-    .hd-media-index .hd-icons-index a{
-        color: white;
-        margin-left: 4px;
-        margin-right: 4px;
-        font-size: 1.2em;
-    }
-    
-    .media{
-        padding-right: 0px;
-        padding-top: 0px;
-    }
-    
-    .media .icons-group a{
-        padding-top: 0px;
-        margin-left: 2px;
-        font-size: 1.2em;
-    }
-
-    .logo_index{
-        margin-top: 60px;
-        width: 100px;
-        height: auto;
-    }
-    
-    .logo_header{
-        margin-top: 15px;
-        width: 50px;
-        height: auto;
-    }
-
-    .upcomingShowsTable thead th{
-        font-size: 12px;
-    }
-
-    .upcomingShowsTable tbody td{
-        font-size: 11px;
-    }
-    
-    
-    #main {
-        transition: margin-left .5s;
-        padding: 20px;
-        margin-left:0px ;
-    }
-    
-    .form-contact{
-        padding: 25px 10px 50px 10px;
-    }
-    
-    form{
-        padding-bottom: 4px;
-    }
-
-    .bigIcons {
-      width: 35px;
-    }
-    
-    li.time, li.song{
-        font-size: 10px;
-    }   
 }
 @media only screen and (max-width : 319px)
-{
-    .section-nocolor,.section-blue, .section-dark-blue, .section-pink, .section-purple, 
-    .section-red, .section-white{
-        padding-bottom: 20px;
-        padding-top:10px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-    
-     .hovereffect {
-        width: 100%;
-        min-height: 90px;
-    }
-    
-    #bg_hd_game, #bg_hd_contact, #bg_hd_releases{
-        min-height: 90px;
-    }
-    
+{  
     body{
         font-size: 12px;
-    }
-    
+    }   
     h2{
         font-size: 22px;
         font-weight: 300;
         line-height: 50px;
     }
-
     h4{
         font-size: 20px;
         font-weight: 300;
         line-height: 25px;
     }
-
     h5{
         font-size: 12px;
         text-align: left;  
     }
-    
-    footer {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        font-size: 11px;
-    }
-    
     .copyright p{
         font-size: 9px;
         padding-top: 3px;
     }
-    
-    #intro{
-        background-image: url('../images/bg_03.png');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: 500px;
-    }
-    
-    .header-media{
-        display: none;
-    }
-
-    .hd-media-index{
-        padding-right: 4px;
-        padding-top: 8px;
-    }
-
-    .hd-media-index .hd-icons-index a{
-        color: white;
-        margin-left: 4px;
-        margin-right: 4px;
-        font-size: 1.2em;
-    }
-    
-    .media{
-        padding-right: 0px;
-        padding-top: 0px;
-    }
-    
-    .media .icons-group a{
-        padding-top: 0px;
-        margin-left: 2px;
-        font-size: 1.2em;
-    }
-
-    .logo_index{
-        margin-top: 60px;
-        width: 110px;
-        height: auto;
-    }
-    
-     .logo_header{
-        margin-top: 15px;
-        width: 50px;
-        height: auto;
-    }
-
-    .upcomingShowsTable thead th{
-        font-size: 12px;
-    }
-
-    .upcomingShowsTable tbody td{
-        font-size: 11px;
-    }
-
-   
-    #main {
-        transition: margin-left .5s;
-        padding: 20px;
-        margin-left:0px ;
-    }
-    
-    .form-contact{
-        padding: 25px 10px 50px 10px;
-    }
-    
-    form{
-        padding-bottom: 4px;
-    }
-    
-    .bigIcons {
-      width: 35px;
-    }
-    
-    li.time, li.song{
-        font-size: 10px;
-    } 
-
 }
 @media only screen and (min-width : 320px) and (max-width : 480px)
 {
-    .section-nocolor,.section-blue, .section-dark-blue, .section-pink, .section-purple, 
-    .section-red, .section-white{
-        padding-bottom: 30px;
-        padding-top: 20px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-    
-     .hovereffect {
-        width: 100%;
-        min-height: 90px;
-    }
-    
-    #bg_hd_game, #bg_hd_contact, #bg_hd_releases{
-        min-height: 90px;
-    }
-    
     body{
         font-size: 12px;
-    }
-    
+    } 
     h2{
         font-size: 22px;
         font-weight: 300;
         line-height: 50px;
     }
-
     h4{
         font-size: 20px;
         font-weight: 300;
         line-height: 25px;
     }
-
     h5{
         font-size: 12px;
         text-align: left;  
     }
-    
-    footer {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        font-size: 11px;
-    }
-    
-    .copyright p {
+   .copyright p {
         font-size: 9px;
         padding-top: 3px;
     }
-    
-    #intro{
-        background-image: url('../images/bg_03.png');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: 530px;
-    }
-
-    .header-media{
-        display: none;
-    }
-    
-    .hd-media-index{
-        padding-right: 4px;
-        padding-top: 8px;
-    }
-
-    .hd-media-index .hd-icons-index a{
-        color: white;
-        margin-left: 4px;
-        margin-right: 4px;
-        font-size: 1.2em;
-    }
-    
-    .media{
-        padding-right: 0px;
-        padding-top: 0px;
-    }
-    
-    .media .icons-group a{
-        padding-top: 0px;
-        margin-left: 2px;
-        font-size: 1.2em;
-    }
-
-    .logo_index{
-        margin-top: 100px;
-        width: 120px;
-        height: auto;
-    }
-    
-     .logo_header{
-        margin-top: 20px;
-        width: 50px;
-        height: auto;
-    }
-
-    .upcomingShowsTable thead th{
-        font-size: 12px;
-    }
-
-    .upcomingShowsTable tbody td{
-        font-size: 11px;
-    }
-
-    
-
-    #main {
-        transition: margin-left .5s;
-        padding: 20px;
-        margin-left:0px ;
-    }
-    
-    .form-contact{
-        padding: 25px 10px 50px 10px;
-    }
-    
-    form{
-        padding-bottom: 4px;
-    }
-    
-    .bigIcons {
-      width: 35px;
-    }
-    
-    li.time, li.song{
-        font-size: 10px;
-    } 
 }
 
 /*//////////////////////////////////////Smartphones (portrait and landscape)//*/
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
-    .section-nocolor,.section-blue, .section-dark-blue, .section-pink, .section-purple, 
-    .section-red, .section-white{
-        padding-bottom: 30px;
-        padding-top: 20px;
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-    
-     .hovereffect {
-        width: 100%;
-        min-height: 90px;
-    }
-    
-    #bg_hd_game, #bg_hd_contact, #bg_hd_releases{
-        min-height: 90px;
-    }
-    
     body{
         font-size: 12px;
     }
-    
     h2{
         font-size: 22px;
         font-weight: 300;
         line-height: 50px;
     }
-
     h4{
         font-size: 20px;
         font-weight: 300;
         line-height: 25px;
     }
-
     h5{
         font-size: 12px;
         text-align: left;  
     }
-    
-    footer {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        font-size: 11px;
-    }
-    
     .copyright p{
         font-size: 9px;
         padding-top: 3px;
-    }
-    
-    #intro{
-        background-image: url('../images/bg_03.png');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: 540px;
-    }
-
-    .header-media{
-        display: none;
-    }
-    
-    .hd-media-index{
-        padding-right: 4px;
-        padding-top: 8px;
-    }
-
-    .hd-media-index .hd-icons-index a{
-        color: white;
-        margin-left: 4px;
-        margin-right: 4px;
-        font-size: 1.2em;
-    }
-    
-    .media{
-        padding-right: 0px;
-        padding-top: 0px;
-    }
-    
-    .media .icons-group a{
-        padding-top: 0px;
-        margin-left: 2px;
-        font-size: 1.2em;
-    }
-
-    .logo_index{
-        margin-top: 100px;
-        width: 120px;
-        height: auto;
-    }
-    
-     .logo_header{
-        margin-top: 20px;
-        width: 50px;
-        height: auto;
-    }
-
-    .upcomingShowsTable thead th{
-        font-size: 12px;
-    }
-
-    .upcomingShowsTable tbody td{
-        font-size: 11px;
-    }
-
-    
-    #main {
-        transition: margin-left .5s;
-        padding: 20px;
-        margin-left:0px ;
-    }
-    
-    .bigIcons {
-        width: 35px;
-    }
-    
-    li.time, li.song{
-        font-size: 10px;
     } 
-
 }
 
 /*3333333////////////////////////////////////////////////////////////////////////////*/
@@ -919,140 +180,20 @@ h5{
 and (max-device-width : 768px)
 and (orientation : landscape)
 {
-    #bg_hd_game, #bg_hd_contact, #bg_hd_releases{
-        min-height: 170px;
-    }
-
-    .logo_index{
-        margin-top: 80px;
-        width: 130px;
-        height: auto;
-    }
-    
-    .logo_header{
-        margin-top: 60px;
-        width: 80px;
-        height: auto;
-    }
-    
-    .header-media{
-        padding-right: 30px;
-        padding-top: 8px;
-    }
-
-    .header-media .header-icons a{
-        margin-left: 8px;
-        margin-right: 8px;
-        font-size: 1.3em;
-    }
-    
-    .hd-media-index{
-        padding-right: 30px;
-        padding-top: 12px;
-    }
-
-    .hd-media-index .hd-icons-index a{
-        color: white;
-        margin-left: 4px;
-        margin-right: 4px;
-        font-size: 1.3em;
-    }
-    
     .copyright p{
         font-size: 11px;
         padding-top: 3px;
-    }
-    
-    #intro{
-        background-image: url('../images/bg_03.png');
-        background-position: top;
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: 580px; 
-        position: relative;
-    }
-    
-
-    #main {
-        transition: margin-left .5s;
-        padding: 20px;
-        margin-left:0px ;
-    }
-    
-    .bigIcons {
-        width: 50px;
-    }
-    
+    } 
 }
 
 /*////////////////////////////////////////////////////////////////////////////*/
 @media only screen and (min-width : 481px)
 and (max-width : 768px)
 {
-    #bg_hd_game, #bg_hd_contact, #bg_hd_releases{
-        min-height: 180px;
-    }
-    
-    .logo_index{
-        margin-top: 80px;
-        width: 140px;
-        height: auto;
-    }
-    
-    .logo_header{
-        margin-top: 60px;
-        width: 80px;
-        height: auto;
-    }
-    
-    .header-media{
-        padding-right: 30px;
-        padding-top: 8px;
-    }
-    
-    .hd-media-index{
-        padding-right: 30px;
-        padding-top: 12px;
-    }
-
-    .hd-media-index .hd-icons-index a{
-        color: white;
-        margin-left: 4px;
-        margin-right: 4px;
-        font-size: 1.3em;
-    }
-    
     .copyright p{
         font-size: 11px;
         padding-top: 3px;
-    }
-    
-    #intro{
-        background-image: url('../images/bg_03.png');
-        background-position: top;
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: 590px; 
-        position: relative;
-    }
-
-    .header-media .header-icons a{
-        margin-left: 8px;
-        margin-right: 8px;
-        font-size: 1.3em;
-    }
-    
-
-    #main {
-        transition: margin-left .5s;
-        padding: 20px;
-        margin-left:0px ;
-    }
-    
-    .bigIcons {
-        width: 50px;
-    }
-
+    }  
 }
 
 
@@ -1062,198 +203,41 @@ and (max-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : landscape)
 {
-    #bg_hd_game, #bg_hd_contact, #bg_hd_releases{
-        min-height: 190px;
-    }
-    
-    .logo_index{
-        margin-top: 40px;
-        width: 150px;
-        height: auto;
-    }
-    
-    .logo_header{
-        margin-top: 30px;
-        width: 90px;
-        height: auto;
-    }
-    
-    .header-media{
-        padding-right: 30px;
-        padding-top: 8px;
-    }
-
-    .header-media .header-icons a{
-        margin-left: 8px;
-        margin-right: 8px;
-        font-size: 1.3em;
-    }
-    
-    .hd-media-index{
-        padding-right: 30px;
-        padding-top: 12px;
-    }
-
-    .hd-media-index .hd-icons-index a{
-        color: white;
-        margin-left: 4px;
-        margin-right: 4px;
-        font-size: 1.3em;
-    }
-    
     .copyright p{
         font-size: 11px;
         padding-top: 3px;
     }
-    
-    #intro{
-        background-image: url('../images/bg_03.png');
-        background-position: top;
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: 610px; 
-        position: relative;
-    }
-    
-    #main {
-        transition: margin-left .5s;
-        padding-right: 20px;
-        margin-left:150px;
-        margin-right:-30px;
-    }
-    
-    .bigIcons {
-        width: 50px;
-    }
-    
 }
 
 /*/////////////////////////////////////////////////////////iPads (landscape)//*/
 @media only screen and (min-width : 769px)
 and (max-width : 1024px)
 {
-    #bg_hd_game, #bg_hd_contact, #bg_hd_releases{
-        min-height: 190px;
-    }
-    
-    .logo_index{
-        margin-top: 40px;
-        width: 160px;
-        height: auto;
-    }
-    
-    .logo_header{
-        margin-top: 30px;
-        width: 130px;
-        height: auto;
-    }
-    
-    .header-media{
-        padding-right: 30px;
-        padding-top: 8px;
-    }
-
-    .header-media .header-icons a{
-        margin-left: 8px;
-        margin-right: 8px;
-        font-size: 1.3em;
-    }
-    
-    .hd-media-index{
-        padding-right: 30px;
-        padding-top: 12px;
-    }
-
-    .hd-media-index .hd-icons-index a{
-        color: white;
-        margin-left: 4px;
-        margin-right: 4px;
-        font-size: 1.3em;
-    }
-    
     .copyright p{
         font-size: 11px;
         padding-top: 3px;
-    }
-    
-    #intro{
-        background-image: url('../images/bg_03.png');
-        background-position: top;
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: 620px; 
-        position: relative;
-    }
-    
-    #main {
-        transition: margin-left .5s;
-        padding-right: 20px;
-        margin-left:150px;
-        margin-right:-30px;
-    }
-    
-    .bigIcons {
-        width: 50px;
-    }
+    }  
 }
 
 /*//////////////////////////////////////////////////////Desktops and laptops//*/
 @media only screen and (min-width : 1025px)
 and (max-width : 1823px)
 {
-    .logo_index{
-        margin-top: 50px;
-        width: 180px;
-        height: auto;
-    }
-    
-    .logo_header{
-        margin-top: 30px;
-        width: 125px;
-        height: auto;
-    }
-    
     .copyright {
         padding-top: 2px;
         padding-bottom: 5px;
-    }
-    
-    
-    #main {
-        transition: margin-left .5s;
-        margin-left:150px ;
-    }
-
-    .fullscreen-video
-    {
-        width: 800px;
-        height: 200px;
-    }
-    
-    .bigIcons {
-        width: 50px;
     }
 }
 
 /*/////////////////////////////////////////////////////////////Large screens//*/
 @media only screen and (min-width : 1824px)
 {
-    .section-blue, .section-dark-blue, .section-pink, .section-purple, 
-    .section-red, .section-white{
-        padding-bottom: 80px;
-        padding-top: 50px;
-        padding-left: 180px;
-        padding-right: 180px;
-    }
-    
     body{
         font-size: 15px;
     }
-    
     h2{
         line-height: 70px;
     }
-
     h4{
         line-height: 45px;
     }
@@ -1261,61 +245,7 @@ and (max-width : 1823px)
         padding-top: 2px;
         padding-bottom: 5px;
     }
-
     .copyright p{
         font-size: 13px;
-    }
-    
-    #intro{
-        background-image: url('../images/bg_03.png');
-        background-position: top;
-        background-size: cover;
-        background-repeat: no-repeat;
-        min-height: 980px; 
-        position: relative;
-    }
-    
-    .hd-media-index{
-        padding-right: 180px;
-        padding-top: 60px;
-    }
-
-    .hd-media-index .hd-icons-index a{
-        margin-left: 4px;
-        margin-right: 4px;
-        font-size: 1.4em;
-    }
-    
-    .media{
-        padding-right: 0px;
-        padding-top: 0px;
-    }
-
-    .media .icons-group a{
-        margin-left: 8px;
-        margin-right: 8px;
-        font-size: 1.4em;
-    }
-
-    .logo_index{
-        margin-top: 70px;
-        width: 260px;
-        height: auto;
-    }
-    
-    
-    #main {
-        transition: margin-left .5s;
-        padding: 20px;
-        margin-left: 250px;
-    }
-    
-    .bigIcons {
-      width: 50px;
-    }
+    }  
 }
-
-
-
-
-

@@ -1,34 +1,25 @@
- var options;
- var chart;
-
-
 $(document).ready(function(){
-    var toChartX = new Array(); 
-    var toChartY = new Array();
+
     $.ajax({
         method:'get',
         url:'chart8',
         success:function(response){
-           
+       // alert(response);
+            
         var myObject = JSON.parse(response);//obj to js
+        //alert(myObject[0].hash_address);
         
-            for( var i = 0; i<myObject.length; i++ ){
-                 toChartX = myObject[i].hash_address;
-            }
-            //alert(myObject[44].hash_address);
-        alert(response);
+        var associativeArray = [];
         
-        
-        },//end of success method
-        Error: function(response){
-            alert('Data not found');
+        for( var x =0; x < myObject.length; x++){
+              var newElement = {};
+              newElement['name'] = myObject[x].hash_address;
+              newElement['y'] = myObject[x].time_sec;
+              associativeArray.push(newElement);
         }
-    });    
-       
-       
-     //  chart = new Highcharts.Chart(options);
+        alert(JSON.stringify(associativeArray));
         
-            /*for(x in myObject){
+        /*for(x in myObject){
             objToChart[x] ={
                 name:myObject[x].hash_address,
                 y:myObject[x].time_sec
@@ -42,11 +33,17 @@ $(document).ready(function(){
        /*(Object.keys(myObject).forEach(function(key){
             alert(myObject['hash_address']);
         });*/
+        //alert(myObject[0].hash_address + "" + myObject[0].time_sec);
+       // alert(myObject.length);
         
+        /*for( var i = 0; i < myObject.length; i++ ){
+             name: myObject.hash_address,
+             y: myObject.time_sec
+        }*/
                        
                   
-   $(function pie(){          
-      var options = Highcharts.chart({
+             
+         var options = Highcharts.chart({
      // Build the chart
      
             chart: {
@@ -75,40 +72,13 @@ $(document).ready(function(){
             series: [{
                 name: 'Brands',
                 colorByPoint: true,
-                data: 
-                        [
- 
-                        /*$(function() {
-                            var objSeries = new Object();
-                            for( var i = 0; i<response.length; i++ ){
-                                objSeries= {name: response[i].hash_address, y:response[i].time_sec };
-                            }
-                            
-                        })*/
-                        
-                        
-                     
-                    /*for( var i = 0; i<myObject.length; i++ ){
-                        name: response['hash_address']
-                        y: response['time_sec']
-                    }*/
-                        //name: response['hash_address'],
-                        //y: response['time_sec']
-                    /*
-                    {name: myObject[8].hash_address,
-                        y: myObject[8].time_sec
-                    },
-                    {name: myObject[12].hash_address,
-                        y: myObject[12].time_sec
-                    }
-                   */
-                    ]
-            }]    
-            });
-        });
+                data: associativeArray
+                }]    
+            });    
+        }
     });
     
-
+});
 
 
 /*$(function four(){
@@ -145,18 +115,14 @@ $(document).ready(function(){
                 data: []
             }]    
     });
-
     //$("#container04").html();
-
     var url = "chart8";
-
     // $data=array("numCustomers"=>$countGroupCust,"customers"=>$groupCust, "phones_id"=>$address);
     $.get(url,function(result){
     var info= jQuery.parseJSON(result);
     var customers=info.customers;
     var numCustomers=info.numCustomers;
     var phones_id=info.phones_id;
-
         for(i=0; i<=numCustomers-1; i++){  
         var address=customers[i].hash_address;
         var obj= {name: customers[i], y:phones_id[address] };     
@@ -249,4 +215,3 @@ $(function two () {
     }]
     });
 });
-

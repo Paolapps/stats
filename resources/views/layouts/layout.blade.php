@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://use.fontawesome.com/fdb3ab1e60.js"></script>
         <link href="{{URL::asset('css/main.css')}}" rel="stylesheet">
-        <link rel="shortcut icon" href="{{URL::asset('images/mini-logo.png')}}">
+        
         <script>
             window.Laravel =
             <?php echo json_encode([
@@ -25,8 +25,7 @@
   
 </head>
     
-    <body>
-        
+    <body> 
         <nav class="navbar navbar-inverse visible-xs">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -50,39 +49,7 @@
         <div id="main">
             @yield('content')     
         </div>
-        <!------------------------------------------footer contents ---------------------------->       
-        <footer>
-            <div class="container">
-                <div class="row">
-                    
-                    <div class=" ft-contact col-md-offset-3 col-md-3 col-sm-offset-1 col-sm-4">
-                        <h5>FIND US</h5>
-                        <p><a href="mailto:girapp@outlook.com" class="phone-link"><i class="fa fa-envelope footer-icon">
-                                </i> E-mail : girapp@outlook.com</p>
-                        <p><i class="fa fa-map-pin footer-icon"></i> Melbourne. Australia</p>
-                    </div>
-                    
-                    <div class=" col-md-2 col-sm-3 pull-left">
-                        <h5 class="align-title">OUR SITE</h5>
-                        <table class="footer-links">
-                            <tbody>
-                                <tr>
-                                    <td><a href="{{url('/')}}">Home</a></td>
-                                    <td><a href="{{url('/videos')}}">Videos</a></td>
-                                </tr>
-                               
-                                <tr>
-                                    <td><a href="{{url('/albums')}}">Photos</a></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </footer>
+        
         <!------------------------------------------footer black block ---------------------------->
         
         <div class="copyright">

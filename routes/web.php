@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('index', 'ResponsesController@index');
+Route::get('/', 'ResponsesController@index');
 Route::get('chart8', 'ResponsesController@chart8');
 Route::get('chart9', 'ResponsesController@chart9');
+
