@@ -75,6 +75,7 @@ class ResponsesController extends Controller
 
         $data=array("numCustomers"=>$countGroupCust,"customers"=>$groupCust, "phones_id"=>$numCust);*/
         return json_encode($customers);
+        
     }
      /*public function chart8(){
         

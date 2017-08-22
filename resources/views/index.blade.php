@@ -6,7 +6,7 @@
 <div id="container04" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 <div id="div_grafica_pie2" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-<div id="div_grafica_pie3" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
 
 
 

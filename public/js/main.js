@@ -1,17 +1,34 @@
+ var options;
+ var chart;
+
 
 $(document).ready(function(){
-    
+    var toChartX = new Array(); 
+    var toChartY = new Array();
     $.ajax({
         method:'get',
         url:'chart8',
         success:function(response){
-       // alert(JSON.parse(response));
-        //alert(response[0]);
-             
+           
         var myObject = JSON.parse(response);//obj to js
-        var objToChart = {};
         
-        /*for(x in myObject){
+            for( var i = 0; i<myObject.length; i++ ){
+                 toChartX = myObject[i].hash_address;
+            }
+            //alert(myObject[44].hash_address);
+        alert(response);
+        
+        
+        },//end of success method
+        Error: function(response){
+            alert('Data not found');
+        }
+    });    
+       
+       
+     //  chart = new Highcharts.Chart(options);
+        
+            /*for(x in myObject){
             objToChart[x] ={
                 name:myObject[x].hash_address,
                 y:myObject[x].time_sec
@@ -25,17 +42,11 @@ $(document).ready(function(){
        /*(Object.keys(myObject).forEach(function(key){
             alert(myObject['hash_address']);
         });*/
-        //alert(myObject[0].hash_address + "" + myObject[0].time_sec);
-       // alert(myObject.length);
         
-        /*for( var i = 0; i < myObject.length; i++ ){
-             name: myObject.hash_address,
-             y: myObject.time_sec
-        }*/
                        
                   
-             
-            var options = Highcharts.chart({
+   $(function pie(){          
+      var options = Highcharts.chart({
      // Build the chart
      
             chart: {
@@ -64,30 +75,40 @@ $(document).ready(function(){
             series: [{
                 name: 'Brands',
                 colorByPoint: true,
-                data: [
+                data: 
+                        [
+ 
+                        /*$(function() {
+                            var objSeries = new Object();
+                            for( var i = 0; i<response.length; i++ ){
+                                objSeries= {name: response[i].hash_address, y:response[i].time_sec };
+                            }
+                            
+                        })*/
+                        
+                        
+                     
                     /*for( var i = 0; i<myObject.length; i++ ){
                         name: response['hash_address']
                         y: response['time_sec']
                     }*/
                         //name: response['hash_address'],
                         //y: response['time_sec']
-                    
-                    /*{name: myObject[8].hash_address,
+                    /*
+                    {name: myObject[8].hash_address,
                         y: myObject[8].time_sec
                     },
                     {name: myObject[12].hash_address,
                         y: myObject[12].time_sec
-                    }*/
-                   
-                ]
+                    }
+                   */
+                    ]
             }]    
             });
-     
-            
-        }
+        });
     });
     
-});
+
 
 
 /*$(function four(){
