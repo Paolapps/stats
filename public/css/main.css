@@ -1,17 +1,7 @@
 
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 550px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-    }
-        
- /* On small screens, set height to 'auto' for the grid */
-@media screen and (max-width: 767px) {
-    .row.content {height: auto;} 
-}
+
 
 body{   
     background-repeat: repeat;
@@ -21,11 +11,11 @@ body{
 }
 .section-heading{
       font-family: 'Acme', sans-serif;
-/*    font-family: 'Sansita', sans-serif;*/
+      color: #1abc9c;
 }
 .sub-heading{
       font-family: 'Acme', sans-serif;
-/*    font-family: 'Sansita', sans-serif;*/
+      color: #1abc9c;
 }
 h2{
     font-size: 34px;
@@ -37,7 +27,7 @@ h4{
     font-size: 24px;
     font-weight: 400;
     line-height: 25px;
-    color: blue;
+    color: #1abc9c;
     text-align: left;
 }
 h5{
@@ -45,12 +35,14 @@ h5{
     font-weight: 100;
     text-align: left;  
 }
+p{
+    color: grey;
+}
 
 /*---------------------------header-index------*/
 
 /*-----------pages--------*/
-.section-blue{
-    background-color: hsla(200, 96%, 26%, 0.3);
+.section-white{
     color: white;
     padding-bottom: 60px;
     padding-top: 20px;
@@ -64,12 +56,12 @@ h5{
 }
 .copyright {
     min-height:40px;
-    background-color: #000000;
+    background-color: #116163;
     padding-top: 12px;
     padding-bottom: 15px;
 }
 .copyright p {
-    color:grey;
+    color: white;
     text-align: center;
     padding-top: 10px;
     margin-bottom:0px;
@@ -214,7 +206,7 @@ and (orientation : landscape)
 and (max-width : 1024px)
 {
     .copyright p{
-        font-size: 11px;
+        font-size: 13px;
         padding-top: 3px;
     }  
 }
@@ -249,3 +241,18 @@ and (max-width : 1823px)
         font-size: 13px;
     }  
 }
+
+/*----------------------------Navbar------------------------------------------*/
+ 
+  .navbar {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 15px;
+      color: #116163;
+  }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
