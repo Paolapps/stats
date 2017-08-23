@@ -12,6 +12,6 @@
 */
 
 Route::get('/', 'ResponsesController@index');
-Route::get('chart8', 'ResponsesController@chart8');
-Route::get('chart9', 'ResponsesController@chart9');
+Route::get('test', 'ResponsesController@test');
+Route::get('c1_avgMins', 'ResponsesController@c1_avgMins');
 

@@ -19,7 +19,8 @@
     <div class="col-sm-9">
       <div class="well">
         <h4>Dashboard</h4>
-        <div id="container04" style="min-width: 600px; height: 600px; max-width: 600px; margin: 0 auto"></div>
+        <div id="c1_avgMins" style="min-width: 600px; height: 300px; max-width: 600px; margin: 0 auto"></div>
+        <div id="test" style="min-width: 310px; height: 300px; max-width: 400px; margin: 0 auto"></div>
         <div id="container" style="min-width: 310px; height: 300px; max-width: 400px; margin: 0 auto"></div>
         <div id="div_grafica_pie2" style="min-width: 310px; height: 300px; max-width: 400px; margin: 0 auto"></div>
 
