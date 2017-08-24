@@ -28,26 +28,29 @@ class SensorsController extends Controller
     //group hash_address e intervalos de tiempo with average time in store
     public function c1_avgMins(){
       
-        $customers = \DB::table('corner01_inputs')
+        $minutes = \DB::table('corner01_inputs')
         	    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
                     ->groupBy('hash_address')
                     ->orderBy('avgMin', 'DESC')
                     ->get()->toArray();
-         return json_encode($customers); 
+         return json_encode($minutes); 
     }
     
-    //select all addresses in db with repeats
-    public function test(){
-        
-        $customers = \DB::table('corner01_inputs')
-        	    ->select('hash_address', 'time_sec')
-                    ->where('time_sec', '<', 4)
+    public function c1_avgSignal(){
+      
+        $decibels = \DB::table('corner01_inputs')
+        	    ->select('hash_address', DB::raw('round(avg(signal_db)) as avgSignal'))
+                    ->groupBy('hash_address')
+                    ->orderBy('avgSignal', 'DESC')
                     ->get()->toArray();
-        return json_encode($customers);    
-    }  
+        
+        return json_encode($decibels); 
+        /*  SELECT hash_address, round(avg(signal_db)) as avgSignal
+            FROM `corner01_inputs` 
+            GROUP by hash_address
+            order by avgSignal DESC*/
+    }
     
-    //series: [{name: 'Installation',data: [43934, 52503, 57177]}] 
-    // name : '4(avgMin)', data: [ countCust, countCust ]
     var $min;
     var $max;
     
@@ -134,41 +137,27 @@ class SensorsController extends Controller
         //print_r($finalResult);
         return json_encode($finalResult);  
         //var_dump($finalResult);
+        
+        /*SELECT hash_address, round(AVG(time_sec))/60 as avgMin  
+        from corner01_inputs
+        where time_sec 
+        BETWEEN 0 and 60
+        group by hash_address*/ 
     }
-     /*[1]=>countCust_1, [2]=>$countCust_2,
-                                [3]=>$countCust_3, [4]=>$countCust_4,
-                                [5]=>$countCust_5, [6]=>$countCust_6,
-                                [7]=>$countCust_7, [8]=>$countCust_8,
-                                [9]=>$countCust_9*/
     
-   /* public function chart17()
-    {
-         //hash_addresses display no repeats 
-         return \DB::table('corner01_inputs')
-                ->select('hash_address')
-                ->groupBy('hash_address')
-                ->get();
-    }
-     //uses previous function
-     public function chart7(){
-     	$newResult = $this -> chart17();
-     	return response()->json($newResult);
-     }*/
+    //select all addresses in db with repeats
+    public function test(){
+        
+        $customers = \DB::table('corner01_inputs')
+        	    ->select('hash_address', 'time_sec')
+                    ->where('time_sec', '<', 4)
+                    ->get()->toArray();
+        return json_encode($customers);    
+    }  
+    
 }
 
-/*      
-         //selecting each customer with his average time in store
-         $groupCust = \DB::table('corner01_inputs')
-        	    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    //->whereBetween('time_sec', [0, 60])
-                    //->orWhereBetween('time_sec', [60, 120])
-                    ->groupBy('hash_address')
-                    ->get();*/
-        /*SELECT hash_address, round(AVG(time_sec))/60 as avgMin  
-from corner01_inputs
-where time_sec 
-BETWEEN 0 and 60
-group by hash_address*/ 
+        
        
     
    

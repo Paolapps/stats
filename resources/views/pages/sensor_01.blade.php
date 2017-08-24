@@ -21,7 +21,7 @@
      <div class="row">
         <div class="col-sm-8 col-sm-offset-2"> 
             <h5>DB during time</h5>
-            <div class="well"></div>
+            <div class="well" id="c1_avgSignal"></div>
         </div>
      </div>
      <div class="row">   

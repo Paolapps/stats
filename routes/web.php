@@ -19,4 +19,5 @@ Route::get('sensor_04', 'SensorsController@sensor_04');
 Route::get('general', 'GeneralController@index');
 Route::get('test', 'SensorsController@test');
 Route::get('c1_avgMins', 'SensorsController@c1_avgMins');
+Route::get('c1_avgSignal', 'SensorsController@c1_avgSignal');
 Route::get('c1_numOfVisits', 'SensorsController@c1_numOfVisits');
