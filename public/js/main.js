@@ -128,29 +128,25 @@ $(function c1_numOfVisits() {
         method:'get',
         url:'c1_numOfVisits',
         success:function(response){
-           // alert(response);
+          // alert(response);
             
             var myObject = JSON.parse(response);//obj to js
-            //alert(myObject[1].hash_address);
-
-            var toChart = [];
-
-            for( var x =0; x < myObject.length; x++){
-              var newElement = {};
-             // newElement['name'] = myObject[x].avgMin;
-              newElement = myObject[x].hash_address;
-              toChart.push(newElement);
-            }       
-            //alert(JSON.stringify(toChart));
+            //alert(JSON.stringify(myObject[1]));
             
             var myChart = Highcharts.chart('c1_numOfVisits', {
 
                 title: {
-                    text: 'Solar Employment Growth by Sector, 2010-2016'
+                    text: 'Number the visits per minute'
+                },
+                xAxis: {
+                    categories: [1,2,3,4,5,6,7,8,9,10],
+                    title: {
+                        text: 'Time (Minutes)'
+                    }
                 },
                 yAxis: {
                     title: {
-                        text: 'Number of Employees'
+                        text: 'Number of customers detected'
                     }
                 },
                 legend: {
@@ -161,13 +157,13 @@ $(function c1_numOfVisits() {
 
                 plotOptions: {
                     series: {
-                        pointStart: 2010
+                        pointStart: 0
                     }
                 },
 
                 series: [{
-                        name: 'Installation',
-                        data: [43934, 52503, 57177]
+                        name: 'Customers in the store',
+                        data: myObject
                     }]
             });
         } //end of success

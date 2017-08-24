@@ -1,45 +1,53 @@
 
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
-
+/*----------------------------Navbar------------------------------------------*/
+ 
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    color: #116163;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}
 body{   
-    background-repeat: repeat;
-    color:gray;
-    z-index: 0;
     font-family: 'Open Sans', sans-serif;
 }
 .section-heading{
-      font-family: 'Acme', sans-serif;
       color: #1abc9c;
 }
 .sub-heading{
-      font-family: 'Acme', sans-serif;
       color: #1abc9c;
 }
 h2{
     font-size: 34px;
     font-weight: 500;
     line-height: 60px;
-    color: blue;
+    color: #1abc9c;
 }
 h4{
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 25px;
     color: #1abc9c;
-    text-align: left;
+    text-align: center;
 }
 h5{
     font-size: 14px;
+    font-weight: bold;
     font-weight: 100;
-    text-align: left;  
+    text-align: left; 
+    color: gray;
 }
 p{
     color: grey;
 }
-
-/*---------------------------header-index------*/
+.aButton a {
+  text-decoration: none;  
+}
 
 /*-----------pages--------*/
 .section-white{
@@ -49,22 +57,33 @@ p{
     padding-left: 30px;
     padding-right: 30px;
 }
-/*----------------------------footer--*/
-h5{
-    font-weight: bold;
-    font-size: 14px;
+.aButton .well {
+    cursor:pointer;
 }
+.aButton .well:active {
+    color:red;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}
+.aButton .well:hover {
+  background-color: #DFE2E6;
+   text-decoration: none;
+  -webkit-transition: background-color 0.7s ease-out;
+  -moz-transition: background-color 0.7s ease-out;
+  -o-transition: background-color 0.7s ease-out;
+  transition: background-color 0.7s ease-out;
+}
+/*----------------------------footer--*/
+
 .copyright {
     min-height:40px;
-    background-color: #116163;
     padding-top: 12px;
     padding-bottom: 15px;
 }
 .copyright p {
-    color: white;
+    color: gray;
     text-align: center;
     padding-top: 10px;
-    margin-bottom:0px;
+    margin-bottom:12px;
     font-size: 12px;
 }
 /*111111////////////////////////////////////////////////////device-width 319px max//*/
@@ -242,17 +261,5 @@ and (max-width : 1823px)
     }  
 }
 
-/*----------------------------Navbar------------------------------------------*/
- 
-  .navbar {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      border: 0;
-      border-radius: 0;
-      margin-bottom: 0;
-      font-size: 15px;
-      color: #116163;
-  }
-  .navbar-nav  li a:hover {
-      color: #1abc9c !important;
-  }
+
+

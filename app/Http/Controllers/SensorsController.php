@@ -8,12 +8,23 @@ use App\Corner03_input;
 use App\Corner04_input;
 use db;
 
-class ResponsesController extends Controller
+class SensorsController extends Controller
 {
     public function index(){
         return view('index');
     }
-    
+    public function sensor_01(){
+        return view('pages/sensor_01');
+    }
+    public function sensor_02(){
+        return view('pages/sensor_02');
+    }
+    public function sensor_03(){
+        return view('pages/sensor_03');
+    }
+    public function sensor_04(){
+        return view('pages/sensor_04');
+    }
     //group hash_address e intervalos de tiempo with average time in store
     public function c1_avgMins(){
       
@@ -65,50 +76,60 @@ class ResponsesController extends Controller
         
         $custMin_4 = \DB::table('corner01_inputs')
                     ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->whereBetween('time_sec', [240, 300])
+                    ->whereBetween('time_sec', [180, 240])
                     ->groupBy('hash_address')
                     ->get()->toArray();
         $countCust_4 = count($custMin_4); 
         
         $custMin_5 = \DB::table('corner01_inputs')
                     ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
+                    ->whereBetween('time_sec', [240, 300])
+                    ->groupBy('hash_address')
+                    ->get()->toArray();
+        $countCust_5 = count($custMin_4); 
+        
+        $custMin_6 = \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
                     ->whereBetween('time_sec', [300, 360])
                     ->groupBy('hash_address')
                     ->get()->toArray();
-        $countCust_5 = count($custMin_5); 
+        $countCust_6 = count($custMin_5); 
         
-        $custMin_6 = \DB::table('corner01_inputs')
+        $custMin_7 = \DB::table('corner01_inputs')
                     ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
                     ->whereBetween('time_sec', [360, 420])
                     ->groupBy('hash_address')
                     ->get()->toArray();
-        $countCust_6 = count($custMin_6); 
+        $countCust_7 = count($custMin_6); 
        
-        $custMin_7 = \DB::table('corner01_inputs')
+        $custMin_8 = \DB::table('corner01_inputs')
                     ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
                     ->whereBetween('time_sec', [420, 480])
                     ->groupBy('hash_address')
                     ->get()->toArray();
-        $countCust_7 = count($custMin_7); 
+        $countCust_8 = count($custMin_7); 
         
-        $custMin_8 = \DB::table('corner01_inputs')
+        $custMin_9 = \DB::table('corner01_inputs')
                     ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
                     ->whereBetween('time_sec', [480, 540])
                     ->groupBy('hash_address')
                     ->get()->toArray();
-        $countCust_8 = count($custMin_8); 
+        $countCust_9 = count($custMin_8); 
         
-        $custMin_9 = \DB::table('corner01_inputs')
+        $custMin_10 = \DB::table('corner01_inputs')
                     ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
                     ->whereBetween('time_sec', [540, 600])
                     ->groupBy('hash_address')
                     ->get()->toArray();
-        $countCust_9 = count($custMin_9); 
+        $countCust_10 = count($custMin_9); 
         
-        $finalResult = array();
-        $finalResult = [$custMin_1, $custMin_2, $custMin_3, $custMin_4, 
+        
+        /*$finalResult = [$custMin_1, $custMin_2, $custMin_3, $custMin_4, 
                         $custMin_5, $custMin_6, $custMin_7, $custMin_8, 
-                        $custMin_9];
+                        $custMin_9];*/
+        $finalResult = [$countCust_1, $countCust_2, $countCust_3, $countCust_4, 
+                        $countCust_5, $countCust_6, $countCust_7, $countCust_8, 
+                        $countCust_9, $countCust_10];
 
         //print_r($finalResult);
         return json_encode($finalResult);  
