@@ -78,59 +78,43 @@ $(function c1_avgSignal(){
         method:'get',
         url:'c1_avgSignal',
         success:function(response){
-            alert(response);
+           // alert(response);
             var myObject = JSON.parse(response);//obj to js
-            alert(myObject[0].hash_address);
-
-            var toChart = [];
-
-            for( var x in myObject){
-                  var newElement = {}; 
-                  newElement = [myObject[x].hash_address,myObject[x].avgSignal];
-                  toChart.push(newElement);
-            }    
-            //alert(JSON.stringify(toChart));
+            //alert(myObject[0].hash_address);
    
-        var options = Highcharts.chart('c1_avgSignal', {
+        var options = Highcharts.chart({
+        // Build the chart
             chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Time of customer at the store'
-                },
-                xAxis: {
-                    type: '',
-                    title: {
-                        text: 'Customers'
+                renderTo: 'c1_avgSignal',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Reception strength'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
                     },
-                    labels: {
-                        rotation: -90,
-                        style: {
-                            fontSize: '7px',
-                            fontFamily: 'Verdana, sans-serif'
-                        }
-                    }
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Time (Minutes)'
-                    }
-                },
-                legend: {
-                    enabled: false
-                },
-                tooltip: {
-                    pointFormat: 'Time: <b>{point.y:.1f} minutes</b>'
-                },
-                series: [{
-                    name: 'Customer',
-                    data: toChart
-                }]
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: myObject
+                }]    
            });//end of options   
         } //end of success
-    }); //end of ajax
-    
+    }); //end of ajax    
 });
 
 $(function c1_numOfVisits() { 
@@ -165,13 +149,11 @@ $(function c1_numOfVisits() {
                     align: 'right',
                     verticalAlign: 'middle'
                 },
-
                 plotOptions: {
                     series: {
                         pointStart: 0
                     }
                 },
-
                 series: [{
                         name: 'Customers in the store',
                         data: myObject

@@ -44,7 +44,49 @@ class SensorsController extends Controller
                     ->orderBy('avgSignal', 'DESC')
                     ->get()->toArray();
         
-        return json_encode($decibels); 
+        $countdB = count($decibels);
+        $colAvgSignal = array_column($decibels,'avgSignal');
+        $positiveDB = array();
+        $countCust1 = 0;
+        $countCust2 = 0;
+        $countCust3 = 0;
+        $countCust4 = 0;
+        $countCust5 = 0;
+        
+        $dB_levels = array();
+        
+        for($i=0; $i < $countdB; $i++ ){    
+            array_push($positiveDB, abs($colAvgSignal[$i]));
+        }
+
+        for($i=0; $i < $countdB; $i++ ){ 
+            switch ($positiveDB) {
+                case ($positiveDB[$i] <= 19 ):
+                    $countCust1++;
+                    break;
+                case ($positiveDB[$i] > 19 && $positiveDB[$i] <= 37):
+                    $countCust2++;
+                    break;
+                case ($positiveDB[$i] > 37 && $positiveDB[$i] <= 55):
+                    $countCust3++;
+                    break;
+                case ($positiveDB[$i] > 55 && $positiveDB[$i] <= 72 ):
+                    $countCust4++;
+                    break;
+                case ($positiveDB[$i] > 72 && $positiveDB[$i] <= 90 ):
+                    $countCust5++;
+                    break;        
+            }
+        }
+        
+        $dB_levels = array(
+            ['name' => 'Very low', 'y' => $countCust1],
+            ['name' => 'Low', 'y' => $countCust2],
+            ['name' => 'Neutral', 'y' => $countCust3],
+            ['name' => 'High', 'y' => $countCust4],
+            ['name' => 'Very high', 'y' => $countCust5]
+        );
+        return json_encode($dB_levels); 
         /*  SELECT hash_address, round(avg(signal_db)) as avgSignal
             FROM `corner01_inputs` 
             GROUP by hash_address
