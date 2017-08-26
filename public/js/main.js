@@ -51,17 +51,17 @@ $(function c1_avgSignal(){
     }); 
 });
 
-$(function c1_timeSignal(){   
+$(function c1_timeSignal(){  
    $.ajax({
         method:'get',
-        url:'c1_timeSignal',
+        url:'c1_timeSignal', 
         success:function(response){
             //alert(response);
             var renderDiv = 'c1_timeSignal';
-            _timeSignal(response, renderDiv);    
+            _timeSignal(response, renderDiv)   
         }, 
         error:function(response){
-           //alert("Error Connecting to Webservice.\nTry again.");
+           alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
     
@@ -223,11 +223,11 @@ $(function c4_avgMins(){
 //------------------------------------ graphic common functions -- -------------
 //------------------------------------------------------------------------------ 
 function _numOfVisits(response, renderDiv) { 
-
+    var myObject;
     myObject = JSON.parse(response);//obj to js
     //alert(JSON.stringify(myObject));
             
-    var myChart = Highcharts.chart({
+    var options = Highcharts.chart({
             chart: {
                 renderTo: renderDiv,
                 style: {
@@ -272,8 +272,8 @@ function _numOfVisits(response, renderDiv) {
 }
 
 function _avgSignal(response, renderDiv){
-
-    var myObject = JSON.parse(response);//obj to js
+    var myObject;
+    myObject = JSON.parse(response);//obj to js
     //alert(myObject[0].hash_address);
     var options = Highcharts.chart({
             chart: {
@@ -310,39 +310,37 @@ function _avgSignal(response, renderDiv){
     });     
 }
 
-$(function _timeSignal(response, renderDiv){
-    
-    var myObject = JSON.parse(response);//obj to js
-    alert(myObject[0].hash_address);
-    alert("here");
+function _timeSignal(response, renderDiv){
+    var myObject; 
+    myObject = JSON.parse(response);//obj to js
+
     var options = Highcharts.chart({
   
         chart: {
             renderTo: renderDiv,
-            zoomType: 'x'
+            zoomType: 'x',
+            style: {
+                fontFamily: '"Open Sans", sans-serif'
+              }
         },
         title: {
-            text: 'USD to EUR exchange rate over time'
+            text: 'Reception strength during 10 minutes '
         },
-        subtitle: {
-            text: document.ontouchstart === undefined ?
-                    'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
-        },
+        
         xAxis: {
+            categories: [1,2,3,4,5,6,7,8,9,10],
+            title: {
+                     text: 'Time (Minutes)'
+                },
             type: 'datetime',
-	    dateTimeLabelFormats: { //force all formats to be hour:minute:second
-                second: '%H:%M:%S',
-                minute: '%H:%M:%S',
-                hour: '%H:%M:%S',
-                day: '%H:%M:%S',
-                week: '%H:%M:%S',
-                month: '%H:%M:%S',
-                year: '%H:%M:%S'
-            }
+            dateTimeLabelFormats: { //force all formats to be hour:minute:second
+            second: '%H:%M:%S',
+             
+         }
         },
         yAxis: {
             title: {
-                text: 'Exchange rate'
+                text: 'Signal levels (Decibels)'
             }
         },
         legend: {
@@ -372,20 +370,21 @@ $(function _timeSignal(response, renderDiv){
                     }
                 },
                 threshold: null
-            }
-        },
+                 }
+            },
 
-        series: [{
+            series: [{
             type: 'area',
-            name: 'USD to EUR',
-            data: data
+            name: 'Decibels',
+            data: myObject
+        
         }]
     });
-});
+}
 
 function _avgMins(response, renderDiv){
-    
-    var myObject = JSON.parse(response);//obj to js
+    var myObject;
+    myObject = JSON.parse(response);//obj to js
     //alert(myObject[0].hash_address);
     var toChart = [];
 
@@ -452,75 +451,7 @@ function _avgMins(response, renderDiv){
 //data: [ ['Shanghai', 23.7]],
 //series: [{name: 'Installation',data: [43934, 52503, 57177]}]
 //series: [{name: 'John', data: [5, 3, 4, 7, 2]}]
-/*
-$(function c1_timeSignal(){
-    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
 
-    Highcharts.chart('c1_timeSignal', {
-        chart: {
-            zoomType: 'x'
-        },
-        title: {
-            text: 'USD to EUR exchange rate over time'
-        },
-        subtitle: {
-            text: document.ontouchstart === undefined ?
-                    'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
-        },
-        xAxis: {
-            type: 'datetime',
-            dateTimeLabelFormats: { //force all formats to be hour:minute:second
-            second: '%H:%M:%S',
-            minute: '%H:%M:%S',
-            hour: '%H:%M:%S',
-            day: '%H:%M:%S',
-            week: '%H:%M:%S',
-            month: '%H:%M:%S',
-            year: '%H:%M:%S'}
-        },
-        yAxis: {
-            title: {
-                text: 'Exchange rate'
-            }
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            area: {
-                fillColor: {
-                    linearGradient: {
-                        x1: 0,
-                        y1: 0,
-                        x2: 0,
-                        y2: 1
-                    },
-                    stops: [
-                        [0, Highcharts.getOptions().colors[0]],
-                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                    ]
-                },
-                marker: {
-                    radius: 2
-                },
-                lineWidth: 1,
-                states: {
-                    hover: {
-                        lineWidth: 1
-                    }
-                },
-                threshold: null
-            }
-        },
-
-        series: [{
-            type: 'area',
-            name: 'USD to EUR',
-            data: data
-        }]
-    });
-});
-});*/
 
 $(function test(){
     $.ajax({
