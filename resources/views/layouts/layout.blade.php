@@ -14,6 +14,8 @@
         
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://use.fontawesome.com/fdb3ab1e60.js"></script>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
         <link href="{{URL::asset('css/main.css')}}" rel="stylesheet">
         
         <script>
@@ -34,7 +36,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>                        
                 </button>
-                <a class="navbar-brand" href="#">Kepler Stats</a>
+                <div class="navbar-brand" >Kepler Stats</div>
               </div>
               <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
