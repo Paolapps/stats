@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Corner01_input;
-use App\Corner02_input;
-use App\Corner03_input;
-use App\Corner04_input;
 use db;
 
 class Sensor_01_Controller extends Controller
@@ -14,18 +11,235 @@ class Sensor_01_Controller extends Controller
     public function sensor_01(){
         return view('pages/sensor_01');
     }
-   
-    //group hash_address e intervalos de tiempo with average time in store
-    public function c1_avgMins(){
-      
-        $minutes = \DB::table('corner01_inputs')
-        	    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
+    //-------------------------------------------------------common functions---
+    //--------------------------------------------------------------------------
+    public function min_01(){
+       $data_min_1 =  \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                            DB::raw('round(avg(signal_db*-1))as newSignal'))
+                    ->where('time_sec', '>', 1)
+                    ->where('time_sec', '<', 60)
                     ->groupBy('hash_address')
-                    ->orderBy('avgMin', 'DESC')
                     ->get()->toArray();
-         return json_encode($minutes); 
+       return $data_min_1;      
+    }
+    
+    public function min_02(){
+        $data_min_2 = \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                            DB::raw('round(avg(signal_db*-1))as newSignal'))
+                    ->where('time_sec', '>', 60)
+                    ->where('time_sec', '<', 120)
+                    ->groupBy('hash_address')
+                    ->get()->toArray();
+        return $data_min_2;
+    }
+    
+    public function min_03(){
+        $data_min_3 = \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                            DB::raw('round(avg(signal_db*-1))as newSignal'))
+                    ->where('time_sec', '>', 120)
+                    ->where('time_sec', '<', 180)
+                    ->groupBy('hash_address')
+                    ->get()->toArray();
+        return $data_min_3;
+    }
+    
+    public function min_04(){
+        $data_min_4 =  \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                            DB::raw('round(avg(signal_db*-1))as newSignal'))
+                    ->where('time_sec', '>', 180)
+                    ->where('time_sec', '<', 240)
+                    ->groupBy('hash_address')
+                    ->get()->toArray();
+        return $data_min_4;
     }
 
+    public function min_05(){
+         $data_min_5 = \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                            DB::raw('round(avg(signal_db*-1))as newSignal'))
+                    ->where('time_sec', '>', 240)
+                    ->where('time_sec', '<', 300)
+                    ->groupBy('hash_address')
+                    ->get()->toArray(); 
+         return $data_min_5;
+    }
+    
+    public function min_06(){   
+       $data_min_6 = \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                            DB::raw('round(avg(signal_db*-1))as newSignal'))
+                    ->where('time_sec', '>', 300)
+                    ->where('time_sec', '<', 360)
+                    ->groupBy('hash_address')
+                    ->get()->toArray();
+       return $data_min_6;
+    }
+    
+    public function min_07(){
+       $data_min_7 = \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                            DB::raw('round(avg(signal_db*-1))as newSignal'))
+                    ->where('time_sec', '>', 360)
+                    ->where('time_sec', '<', 420)        
+                    ->groupBy('hash_address')
+                    ->get()->toArray();
+       return $data_min_7;
+    }
+    
+    public function min_08(){
+        $data_min_8 = \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                            DB::raw('round(avg(signal_db*-1))as newSignal'))
+                    ->where('time_sec', '>', 420)
+                    ->where('time_sec', '<', 480)
+                    ->groupBy('hash_address')
+                    ->get()->toArray();
+        return $data_min_8;
+    }
+    
+    public function min_09(){
+        $data_min_9 = \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                            DB::raw('round(avg(signal_db*-1))as newSignal'))
+                    ->where('time_sec', '>', 480)
+                    ->where('time_sec', '<', 540)
+                    ->groupBy('hash_address')
+                    ->get()->toArray(); 
+        return $data_min_9;        
+    }
+      
+    public function min_10(){
+         $data_min_10 = \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                            DB::raw('round(avg(signal_db*-1))as newSignal'))
+                    ->where('time_sec', '>', 540)
+                    ->where('time_sec', '<', 600)
+                    ->groupBy('hash_address')
+                    ->get()->toArray();
+         return $data_min_10;
+    }
+    //------------------------------------common functions COUNT----------------
+    //--------------------------------------------------------------------------
+    public function count_min_01(){
+         $data_min_1 = Sensor_01_Controller::min_01();
+         return $numCust_1 = count($data_min_1); 
+    }
+    public function count_min_02(){
+        $data_min_2 = Sensor_01_Controller::min_02();
+        return $numCust_2 = count($data_min_2);    
+    }
+    public function count_min_03(){
+        $data_min_3 = Sensor_01_Controller::min_03();
+        return $numCust_3 = count($data_min_3);       
+    }
+    public function count_min_04(){
+         $data_min_4 = Sensor_01_Controller::min_04();
+         return $numCust_4 = count($data_min_4);    
+    }
+    public function count_min_05(){
+         $data_min_5 = Sensor_01_Controller::min_05();
+         return $numCust_5 = count($data_min_5);   
+    }
+    public function count_min_06(){
+         $data_min_6 = Sensor_01_Controller::min_06();
+         return $numCust_6 = count($data_min_6);    
+    }
+    public function count_min_07(){
+         $data_min_7 = Sensor_01_Controller::min_07();
+         return $numCust_7 = count($data_min_7);   
+    }
+    public function count_min_08(){
+         $data_min_8 = Sensor_01_Controller::min_08();
+         return $numCust_8 = count($data_min_8);    
+    }
+    public function count_min_09(){
+         $data_min_9 = Sensor_01_Controller::min_09();
+         return $numCust_9 = count($data_min_9);    
+    }
+    public function count_min_10(){
+         $data_min_10 = Sensor_01_Controller::min_10();
+         return $numCust_10 = count($data_min_10);    
+    }
+    
+    public function c1_numOfVisits(){
+        
+        $numCust_1 = Sensor_01_Controller::count_min_01();
+        $numCust_2 = Sensor_01_Controller::count_min_02();
+        $numCust_3 = Sensor_01_Controller::count_min_03();
+        $numCust_4 = Sensor_01_Controller::count_min_04();
+        $numCust_5 = Sensor_01_Controller::count_min_05();
+        $numCust_6 = Sensor_01_Controller::count_min_06();
+        $numCust_7 = Sensor_01_Controller::count_min_07();
+        $numCust_8 = Sensor_01_Controller::count_min_08();
+        $numCust_9 = Sensor_01_Controller::count_min_09();
+        $numCust_10 = Sensor_01_Controller::count_min_10();
+        
+        $visits_min = array();
+        $visits_min = [$numCust_1, $numCust_2, $numCust_3, $numCust_4,
+                    $numCust_5, $numCust_6, $numCust_7, $numCust_8, $numCust_9,
+                    $numCust_10];
+        
+        return json_encode($visits_min); 
+    }  
+    //-------------------------- functions decibels AVERAGE min ----------------
+    //--------------------------------------------------------------------------
+    public function signal_min_01(){
+        $numCust_1 = Sensor_01_Controller::count_min_01();
+    
+    } 
+    public function signal_min_02(){
+        $numCust_2 = Sensor_01_Controller::count_min_02(); 
+    } 
+    public function signal_min_03(){
+        $numCust_3 = Sensor_01_Controller::count_min_03();
+    } 
+    public function signal_min_04(){
+        $numCust_4 = Sensor_01_Controller::count_min_04(); 
+    } 
+    public function signal_min_05(){
+        $numCust_5 = Sensor_01_Controller::count_min_05(); 
+    } 
+    public function signal_min_06(){
+        $numCust_6 = Sensor_01_Controller::count_min_06(); 
+    } 
+    public function signal_min_07(){
+        $numCust_7 = Sensor_01_Controller::count_min_07(); 
+    } 
+    public function signal_min_08(){
+        $numCust_8 = Sensor_01_Controller::count_min_08();
+    } 
+    public function signal_min_09(){
+        $numCust_9 = Sensor_01_Controller::count_min_09(); 
+    } 
+    public function signal_min_10(){
+        $numCust_10 = Sensor_01_Controller::count_min_10(); 
+    } 
+    
+    
+     
+    public function c1_timeSignal(){
+    
+    //SELECT hash_address, round(AVG(time_sec))/60 as avgMin, AVG(signal_db*-1) 
+    //as newSignal from corner01_inputs where time_sec > 60 and time_sec < 120 
+    //group by hash_address order by newSignal DESC 
+       $data_min_2 = Sensor_01_Controller::min_02();
+      
+       
+       $neww = count($data_min_2);
+      
+       //$dB_levels = array();
+       
+       var_dump($data_min_2);
+       die();
+     	//return response()->json($data_min_2);
+    }
+    
+   
+    
     public function c1_avgSignal(){
       
         $decibels = \DB::table('corner01_inputs')
@@ -82,91 +296,18 @@ class Sensor_01_Controller extends Controller
             GROUP by hash_address
             order by avgSignal DESC*/
     }
+    
+    //group hash_address e intervalos de tiempo with average time in store
+    public function c1_avgMins(){
       
-    public function c1_numOfVisits(){
-    
-        $custMin_1 = \DB::table('corner01_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->whereBetween('time_sec', [0, 60])
+        $minutes = \DB::table('corner01_inputs')
+        	    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
                     ->groupBy('hash_address')
+                    ->orderBy('avgMin', 'DESC')
                     ->get()->toArray();
-        $countCust_1 = count($custMin_1);  
+         return json_encode($minutes); 
+    }  
         
-        $custMin_2 = \DB::table('corner01_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->whereBetween('time_sec', [1, 120])
-                    ->groupBy('hash_address')
-                    ->get()->toArray();
-        $countCust_2 = count($custMin_2); 
-        
-        $custMin_3 = \DB::table('corner01_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->whereBetween('time_sec', [120, 180])
-                    ->groupBy('hash_address')
-                    ->get()->toArray();
-        $countCust_3 = count($custMin_3); 
-        
-        $custMin_4 = \DB::table('corner01_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->whereBetween('time_sec', [180, 240])
-                    ->groupBy('hash_address')
-                    ->get()->toArray();
-        $countCust_4 = count($custMin_4); 
-        
-        $custMin_5 = \DB::table('corner01_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->whereBetween('time_sec', [240, 300])
-                    ->groupBy('hash_address')
-                    ->get()->toArray();
-        $countCust_5 = count($custMin_5); 
-        
-        $custMin_6 = \DB::table('corner01_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->whereBetween('time_sec', [300, 360])
-                    ->groupBy('hash_address')
-                    ->get()->toArray();
-        $countCust_6 = count($custMin_6); 
-        
-        $custMin_7 = \DB::table('corner01_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->whereBetween('time_sec', [360, 420])
-                    ->groupBy('hash_address')
-                    ->get()->toArray();
-        $countCust_7 = count($custMin_7); 
-       
-        $custMin_8 = \DB::table('corner01_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->whereBetween('time_sec', [420, 480])
-                    ->groupBy('hash_address')
-                    ->get()->toArray();
-        $countCust_8 = count($custMin_8); 
-        
-        $custMin_9 = \DB::table('corner01_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->whereBetween('time_sec', [480, 540])
-                    ->groupBy('hash_address')
-                    ->get()->toArray();
-        $countCust_9 = count($custMin_9); 
-        
-        $custMin_10 = \DB::table('corner01_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->whereBetween('time_sec', [540, 600])
-                    ->groupBy('hash_address')
-                    ->get()->toArray();
-        $countCust_10 = count($custMin_10); 
-        
-        $finalResult = [$countCust_1, $countCust_2, $countCust_3, $countCust_4, 
-                        $countCust_5, $countCust_6, $countCust_7, $countCust_8, 
-                        $countCust_9, $countCust_10];
-   
-        return json_encode($finalResult);  
-        /*SELECT hash_address, round(AVG(time_sec))/60 as avgMin, AVG(signal_db) as dB  
-        from corner01_inputs
-        where time_sec 
-        BETWEEN 0 and 60
-        group by hash_address*/ 
-    }
-    
     //total customers per sensor
     public function statVisitors(){
          $visitors = \DB::table('corner01_inputs')
@@ -198,13 +339,12 @@ class Sensor_01_Controller extends Controller
         $countdB = count($decibels);
         $colDB = array_column($decibels,'avgSignal');
        
-        return response()->json($colDB);
-        
+        return response()->json($colDB); 
     }
     
     //longest time in the store
     public function longestTime(){
-     $result = \DB::table('corner01_inputs')
+        $result = \DB::table('corner01_inputs')
                     
         			->select('hash_address', DB::raw('count(*) as total'), 
         				DB::raw('max(time_sec) as max'),
@@ -238,8 +378,6 @@ class Sensor_01_Controller extends Controller
     
     //in which sensor the signal is higher, how many people, how long
     //select all addresses in db with repeats
-     
-    
     
 }
 

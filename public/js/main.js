@@ -4,9 +4,18 @@ $(document).ready(function(){
      
      c1_numOfVisits();
      c1_avgSignal();
+     c1_timeSignal();
      c1_avgMins();
-
-    test(); 
+     c2_numOfVisits();
+     c2_avgSignal();
+     c2_avgMins();
+     c3_numOfVisits();
+     c3_avgSignal();
+     c3_avgMins();
+     c4_numOfVisits();
+     c4_avgSignal();
+     c4_avgMins();
+     test(); 
     
 });
 
@@ -32,7 +41,7 @@ $(function c1_avgSignal(){
         method:'get',
         url:'c1_avgSignal',
         success:function(response){
-           // alert(response);
+           //alert(response);
            var renderDiv = 'c1_avgSignal';
            _avgSignal(response, renderDiv); 
         }, 
@@ -40,6 +49,22 @@ $(function c1_avgSignal(){
             alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
+});
+
+$(function c1_timeSignal(){   
+   $.ajax({
+        method:'get',
+        url:'c1_timeSignal',
+        success:function(response){
+            //alert(response);
+            var renderDiv = 'c1_timeSignal';
+            _timeSignal(response, renderDiv);    
+        }, 
+        error:function(response){
+           //alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+    
 });
 
 $(function c1_avgMins(){                      
@@ -56,13 +81,151 @@ $(function c1_avgMins(){
         }
     }); 
 });
+//---------------------------------------------------Sensor 02 -----------------
+//------------------------------------------------------------------------------
+$(function c2_numOfVisits() {   
+        $.ajax({
+        method:'get',
+        url:'c2_numOfVisits', 
+        success:function(response){
+        //alert(response); 
+           var renderDiv = 'c2_numOfVisits';
+           _numOfVisits(response, renderDiv); 
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
 
-//----------------------------------- Common graphic functions -----------------
+$(function c2_avgSignal(){ 
+    $.ajax({
+        method:'get',
+        url:'c2_avgSignal',
+        success:function(response){
+           // alert(response);
+           var renderDiv = 'c2_avgSignal';
+           _avgSignal(response, renderDiv); 
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c2_avgMins(){                      
+    $.ajax({
+        method:'get',
+        url:'c2_avgMins',
+        success:function(response){
+            //alert(response);
+            var renderDiv = 'c2_avgMins';
+            _avgMins(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+//---------------------------------------------------Sensor 03 -----------------
+//------------------------------------------------------------------------------
+$(function c3_numOfVisits() {   
+        $.ajax({
+        method:'get',
+        url:'c3_numOfVisits', 
+        success:function(response){
+        //alert(response); 
+           var renderDiv = 'c3_numOfVisits';
+           _numOfVisits(response, renderDiv); 
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c3_avgSignal(){ 
+    $.ajax({
+        method:'get',
+        url:'c3_avgSignal',
+        success:function(response){
+           // alert(response);
+           var renderDiv = 'c3_avgSignal';
+           _avgSignal(response, renderDiv); 
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c3_avgMins(){                      
+    $.ajax({
+        method:'get',
+        url:'c3_avgMins',
+        success:function(response){
+            //alert(response);
+            var renderDiv = 'c3_avgMins';
+            _avgMins(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+//---------------------------------------------------Sensor 04 -----------------
+//------------------------------------------------------------------------------
+$(function c4_numOfVisits() {   
+        $.ajax({
+        method:'get',
+        url:'c4_numOfVisits', 
+        success:function(response){
+        //alert(response); 
+           var renderDiv = 'c4_numOfVisits';
+           _numOfVisits(response, renderDiv); 
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c4_avgSignal(){ 
+    $.ajax({
+        method:'get',
+        url:'c4_avgSignal',
+        success:function(response){
+           // alert(response);
+           var renderDiv = 'c4_avgSignal';
+           _avgSignal(response, renderDiv); 
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c4_avgMins(){                      
+    $.ajax({
+        method:'get',
+        url:'c4_avgMins',
+        success:function(response){
+            //alert(response);
+            var renderDiv = 'c4_avgMins';
+            _avgMins(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+//------------------------------------ graphic common functions -- -------------
 //------------------------------------------------------------------------------ 
 function _numOfVisits(response, renderDiv) { 
-        
-    var myObject = JSON.parse(response);//obj to js
-    //alert(JSON.stringify(myObject[1]));
+
+    myObject = JSON.parse(response);//obj to js
+    //alert(JSON.stringify(myObject));
             
     var myChart = Highcharts.chart({
             chart: {
@@ -147,6 +310,79 @@ function _avgSignal(response, renderDiv){
     });     
 }
 
+$(function _timeSignal(response, renderDiv){
+    
+    var myObject = JSON.parse(response);//obj to js
+    alert(myObject[0].hash_address);
+    alert("here");
+    var options = Highcharts.chart({
+  
+        chart: {
+            renderTo: renderDiv,
+            zoomType: 'x'
+        },
+        title: {
+            text: 'USD to EUR exchange rate over time'
+        },
+        subtitle: {
+            text: document.ontouchstart === undefined ?
+                    'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+        },
+        xAxis: {
+            type: 'datetime',
+	    dateTimeLabelFormats: { //force all formats to be hour:minute:second
+                second: '%H:%M:%S',
+                minute: '%H:%M:%S',
+                hour: '%H:%M:%S',
+                day: '%H:%M:%S',
+                week: '%H:%M:%S',
+                month: '%H:%M:%S',
+                year: '%H:%M:%S'
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Exchange rate'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            area: {
+                fillColor: {
+                    linearGradient: {
+                        x1: 0,
+                        y1: 0,
+                        x2: 0,
+                        y2: 1
+                    },
+                    stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    ]
+                },
+                marker: {
+                    radius: 2
+                },
+                lineWidth: 1,
+                states: {
+                    hover: {
+                        lineWidth: 1
+                    }
+                },
+                threshold: null
+            }
+        },
+
+        series: [{
+            type: 'area',
+            name: 'USD to EUR',
+            data: data
+        }]
+    });
+});
+
 function _avgMins(response, renderDiv){
     
     var myObject = JSON.parse(response);//obj to js
@@ -212,14 +448,79 @@ function _avgMins(response, renderDiv){
 }
 
 
-
-
 //data: [{ name: 'Microsoft Internet Explorer', y: 56.33 }],
 //data: [ ['Shanghai', 23.7]],
 //series: [{name: 'Installation',data: [43934, 52503, 57177]}]
 //series: [{name: 'John', data: [5, 3, 4, 7, 2]}]
+/*
+$(function c1_timeSignal(){
+    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
 
+    Highcharts.chart('c1_timeSignal', {
+        chart: {
+            zoomType: 'x'
+        },
+        title: {
+            text: 'USD to EUR exchange rate over time'
+        },
+        subtitle: {
+            text: document.ontouchstart === undefined ?
+                    'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+        },
+        xAxis: {
+            type: 'datetime',
+            dateTimeLabelFormats: { //force all formats to be hour:minute:second
+            second: '%H:%M:%S',
+            minute: '%H:%M:%S',
+            hour: '%H:%M:%S',
+            day: '%H:%M:%S',
+            week: '%H:%M:%S',
+            month: '%H:%M:%S',
+            year: '%H:%M:%S'}
+        },
+        yAxis: {
+            title: {
+                text: 'Exchange rate'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            area: {
+                fillColor: {
+                    linearGradient: {
+                        x1: 0,
+                        y1: 0,
+                        x2: 0,
+                        y2: 1
+                    },
+                    stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    ]
+                },
+                marker: {
+                    radius: 2
+                },
+                lineWidth: 1,
+                states: {
+                    hover: {
+                        lineWidth: 1
+                    }
+                },
+                threshold: null
+            }
+        },
 
+        series: [{
+            type: 'area',
+            name: 'USD to EUR',
+            data: data
+        }]
+    });
+});
+});*/
 
 $(function test(){
     $.ajax({

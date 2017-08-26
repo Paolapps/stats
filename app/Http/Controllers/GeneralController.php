@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Corner01_input;
+use App\Corner02_input;
+use App\Corner03_input;
+use App\Corner04_input;
+use db;
 
 class GeneralController extends Controller
 {
@@ -11,6 +15,54 @@ class GeneralController extends Controller
     }
     public function general(){
         return view('pages/general');
+    }
+    
+     //total customers per sensor
+    public function statVisitors(){
+         $visitors = \DB::table('corner01_inputs')
+                    ->get()->keyBy('hash_address');
+         $totalVisitors = count($visitors);
+
+        return response()->json($totalVisitors);
+    }
+                
+    //average time
+    public function statTime(){
+        $time = \DB::table('corner01_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
+                    ->groupBy('hash_address')
+                    ->get()->toArray();
+        $totalTime = count($time);
+        $colTime = array_column($time,'avgMin');
+        //loop, sumar y dividir en count
+        return response()->json($totalTime);
+    }
+    //average signal 
+    public function statSignal(){
+        $decibels = \DB::table('corner01_inputs')
+        	    ->select('hash_address', DB::raw('round(avg(signal_db)) as avgSignal'))
+                    ->groupBy('hash_address')
+                    ->orderBy('avgSignal', 'DESC')
+                    ->get()->toArray();
+        //loop, sumar y dividir en count
+        $countdB = count($decibels);
+        $colDB = array_column($decibels,'avgSignal');
+       
+        return response()->json($colDB);
+        
+    }
+    
+    //longest time in the store
+    public function longestTime(){
+     $result = \DB::table('corner01_inputs')
+                    
+        			->select('hash_address', DB::raw('count(*) as total'), 
+        				DB::raw('max(time_sec) as max'),
+        				DB::raw('min(time_sec) as min'),
+        				DB::raw('max(time_sec) - min(time_sec) as timing'))
+                    ->groupBy('hash_address')
+                    ->orderBy('timing', 'DESC')
+                    ->get();
     }
        
     public function c1_numOfVisits(){

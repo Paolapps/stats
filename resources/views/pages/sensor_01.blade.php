@@ -11,13 +11,19 @@
        </div>
        <div class="row">   
         <div class="col-sm-8 col-sm-offset-2"> 
-         <h5>Number of visitors through time Sensor-1</h5>
+         <h5>Number of visitors over time Sensor-1</h5>
          <div class="well graph" id="c1_numOfVisits"></div>
+        </div>
+      </div>
+     <div class="row">   
+        <div class="col-sm-8 col-sm-offset-2"> 
+         <h5>Reception strength over time Sensor-1</h5>
+         <div class="well graph" id="c1_timeSignal"></div>
         </div>
       </div>
      <div class="row">
         <div class="col-sm-8 col-sm-offset-2"> 
-            <h5>Percentage of reception strength Sensor-1</h5>
+            <h5>Reception strength Sensor-1</h5>
             <div class="well graph" id="c1_avgSignal"></div>
         </div>
      </div>
