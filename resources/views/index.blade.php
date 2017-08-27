@@ -27,7 +27,7 @@
                 <div class="col-sm-4"><p>5 Minutes</p></div>
             </div>
           </div>
-          
+         </a>
         </div>
       </div>
      
@@ -73,10 +73,18 @@
           </a>
         </div>
         <div class="col-sm-4 aButton">
-          <div class="well">
+          
+            <h5>Number of visitors over time Sensor-1</h5>
+           <div class="well graph" id="c1_numOfVisits"></div> 
+          
             
-          </div>
         </div>
+           <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0"> 
+            <h5>Reception strength Sensor-1</h5>
+            <div class="well graph" id="c1_avgSignal"></div>
+        </div>
+       </div>
       </div>
 
     </div>    

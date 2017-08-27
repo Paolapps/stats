@@ -13,6 +13,9 @@ class Sensor_01_Controller extends Controller
     }
     //-------------------------------------------------------common functions---
     //--------------------------------------------------------------------------
+    /*SELECT hash_address, round(AVG(time_sec))/60 as avgMin, AVG(signal_db*-1) 
+      as newSignal from corner01_inputs where time_sec > 60 and time_sec < 120 
+      group by hash_address order by newSignal DESC*/ 
     public function min_01(){
         $data_min_1 =  \DB::table('corner01_inputs')
                     ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
@@ -164,7 +167,6 @@ class Sensor_01_Controller extends Controller
          $data_min_10 = Sensor_01_Controller::min_10();
          return $numCust_10 = count($data_min_10);    
     }
-    
     //-------------------------- functions get column Signal_db min ------------
     //--------------------------------------------------------------------------
     public function col_dB_min_01(){
@@ -261,11 +263,8 @@ class Sensor_01_Controller extends Controller
         return $avgSignal_10 = round(array_sum($dB_10)/$numCust_10);
     } 
 
-    public function c1_timeSignal(){
-        
-    //SELECT hash_address, round(AVG(time_sec))/60 as avgMin, AVG(signal_db*-1) 
-    //as newSignal from corner01_inputs where time_sec > 60 and time_sec < 120 
-    //group by hash_address order by newSignal DESC 
+    public function c1_timeSignal(){  
+     //arrays average Signal per minute
      $avgSignal_1 = Sensor_01_Controller::signal_min_01();
      $avgSignal_2 = Sensor_01_Controller::signal_min_02();
      $avgSignal_3 = Sensor_01_Controller::signal_min_03();
@@ -285,7 +284,7 @@ class Sensor_01_Controller extends Controller
      return json_encode($dB_min);    
     }
     public function c1_numOfVisits(){
-        
+        //arrays counting data query of each minute
         $numCust_1 = Sensor_01_Controller::count_min_01();
         $numCust_2 = Sensor_01_Controller::count_min_02();
         $numCust_3 = Sensor_01_Controller::count_min_03();
@@ -324,10 +323,11 @@ class Sensor_01_Controller extends Controller
         
         $dB_levels = array();
         
+        //converting negative db values in positive
         for($i=0; $i < $countdB; $i++ ){    
             array_push($positiveDB, abs($colAvgSignal[$i]));
         }
-
+        //check levels of signal, count avg level per minute
         for($i=0; $i < $countdB; $i++ ){ 
             switch ($positiveDB) {
                 case ($positiveDB[$i] <= 19 ):
@@ -347,11 +347,11 @@ class Sensor_01_Controller extends Controller
                     break;        
             }
         }
-        
+        //structuring object to be sent
         $dB_levels = array(
             ['name' => 'Very low', 'y' => $countCust1],
             ['name' => 'Low', 'y' => $countCust2],
-            ['name' => 'Neutral', 'y' => $countCust3],
+            ['name' => 'Moderate', 'y' => $countCust3],
             ['name' => 'High', 'y' => $countCust4],
             ['name' => 'Very high', 'y' => $countCust5]
         );
@@ -374,7 +374,7 @@ class Sensor_01_Controller extends Controller
     }  
         
     //total customers per sensor
-    public function statVisitors(){
+    public function c1_statCust(){
          $visitors = \DB::table('corner01_inputs')
                     ->get()->keyBy('hash_address');
          $totalVisitors = count($visitors);
@@ -383,7 +383,7 @@ class Sensor_01_Controller extends Controller
     }
                 
     //average time
-    public function statTime(){
+    public function c1_statTime(){
         $time = \DB::table('corner01_inputs')
                     ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
                     ->groupBy('hash_address')
@@ -394,7 +394,7 @@ class Sensor_01_Controller extends Controller
         return response()->json($totalTime);
     }
     //average signal 
-    public function statSignal(){
+    public function c1_statDB(){
         $decibels = \DB::table('corner01_inputs')
         	    ->select('hash_address', DB::raw('round(avg(signal_db)) as avgSignal'))
                     ->groupBy('hash_address')
@@ -408,7 +408,7 @@ class Sensor_01_Controller extends Controller
     }
     
     //longest time in the store
-    public function longestTime(){
+    public function c1_statLongTime(){
         $result = \DB::table('corner01_inputs')
                     
         			->select('hash_address', DB::raw('count(*) as total'), 
@@ -421,22 +421,97 @@ class Sensor_01_Controller extends Controller
     }
     
     //best reception
-    public function bestSignal(){
+    public function c1_statHighDB(){
         
     }
     //bussiest time
-    public function bestTime(){
+    public function c1_statBusyTime(){
         
     }
     
-    //info each person db
-    public function eachDB(){
+    // person more than one time in the store
+    public function c1_statReenter(){
+        //arrays queries per minute
+        $data_min_1 = Sensor_01_Controller::min_01();
+        $data_min_2 = Sensor_01_Controller::min_02();
+        $data_min_3 = Sensor_01_Controller::min_03();
+        $data_min_4 = Sensor_01_Controller::min_04();
+        $data_min_5 = Sensor_01_Controller::min_05();
+        $data_min_6 = Sensor_01_Controller::min_06();
+        $data_min_7 = Sensor_01_Controller::min_07();
+        $data_min_8 = Sensor_01_Controller::min_08();
+        $data_min_9 = Sensor_01_Controller::min_09();
+        $data_min_10 = Sensor_01_Controller::min_10();
         
-    }
-    //info each person time
-    public function eachTime(){
+        //getting hash_address column for each minute
+        $col_address_1 = array_column($data_min_1,'hash_address');
+        $col_address_2 = array_column($data_min_2,'hash_address');
+        $col_address_3 = array_column($data_min_3,'hash_address');
+        $col_address_4 = array_column($data_min_4,'hash_address');
+        $col_address_5 = array_column($data_min_5,'hash_address');
+        $col_address_6 = array_column($data_min_6,'hash_address');
+        $col_address_7 = array_column($data_min_7,'hash_address');
+        $col_address_8 = array_column($data_min_8,'hash_address');
+        $col_address_9 = array_column($data_min_9,'hash_address');
+        $col_address_10 = array_column($data_min_10,'hash_address');
         
+        //process between minute 1 and 2
+        //---------------------------------
+        $custOut_min_12 = array_diff($col_address_1, $col_address_2);//differences, customers out & new customers
+        $custJoin_min_12 = array_merge($col_address_1, $col_address_2);//join both arrays min_01 and min_02 
+        $custReal_in_12 = array_count_values($custJoin_min_12);//removing customer repeats from join
+        
+        //process between 1&2 minutes join + 3rd minute 
+        $custOut_min_123 = array_diff($custReal_in_12, $col_address_3);
+        $custJoin_min_123 = array_merge($custReal_in_12, $col_address_3);
+        $custReal_in_123 = array_count_values($custJoin_min_123);
+        
+        //process between 1&2&3 minutes join + 4th minute 
+        $custOut_min_1234 = array_diff($custReal_in_123, $col_address_4);
+        $custJoin_min_1234 = array_merge($custReal_in_123, $col_address_4);
+        $custReal_in_1234 = array_count_values($custJoin_min_1234);
+        
+        //process between 1&2&3&4 minutes join + 5th minute 
+        $custOut_min_12345 = array_diff($custReal_in_1234, $col_address_5);
+        $custJoin_min_12345 = array_merge($custReal_in_1234, $col_address_5);
+        $custReal_in_12345 = array_count_values($custJoin_min_12345);
+        
+        //process between 1&2&3&4&5 minutes join + 6th minute 
+        $custOut_min_123456 = array_diff($custReal_in_12345, $col_address_6);
+        $custJoin_min_123456 = array_merge($custReal_in_12345, $col_address_6);
+        $custReal_in_123456 = array_count_values($custJoin_min_123456);
+        
+        //process between 1&2&3&4&5&6 minutes join + 7th minute 
+        $custOut_min_1234567 = array_diff($custReal_in_123456, $col_address_7);
+        $custJoin_min_1234567 = array_merge($custReal_in_123456, $col_address_7);
+        $custReal_in_1234567 = array_count_values($custJoin_min_1234567);
+        
+        //process between 1&2&3&4&5&6&7 minutes join + 8th minute 
+        $custOut_min_12345678 = array_diff($custReal_in_1234567, $col_address_8);
+        $custJoin_min_12345678 = array_merge($custReal_in_1234567, $col_address_8);
+        $custReal_in_12345678 = array_count_values($custJoin_min_12345678);
+        
+        //process between 1&2&3&4&5&6&7&8 minutes join + 9th minute 
+        $custOut_min_123456789 = array_diff($custReal_in_12345678, $col_address_9);
+        $custJoin_min_123456789 = array_merge($custReal_in_12345678, $col_address_9);
+        $custReal_in_123456789 = array_count_values($custJoin_min_123456789);
+        
+        //process between 1&2&3&4&5&6&7&8&9 minutes join + 10th minute 
+        $custOut_min_12345678910 = array_diff($custReal_in_123456789, $col_address_10);
+        $custJoin_min_12345678910 = array_merge($custReal_in_123456789, $col_address_10);
+        $custReal_in_12345678910 = array_count_values($custJoin_min_12345678910);
+        
+        //Join array data of out & new customers of each minute
+        $outerJoins = array_merge($custOut_min_12, $custOut_min_123, $custOut_min_1234,
+                $custOut_min_12345, $custOut_min_123456, $custOut_min_1234567, 
+                $custOut_min_12345678, $custOut_min_123456789, $custOut_min_12345678910);
+        
+        //Difference between customers in joins and and the ones outerjoins
+        $custReturn = array_diff($custReal_in_12345678910, $outerJoins);
+        
+        return json_encode(sizeof($custReturn));
     }
+   
 
     //people rentering
     

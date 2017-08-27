@@ -6,14 +6,21 @@ $(document).ready(function(){
      c1_avgSignal();
      c1_timeSignal();
      c1_avgMins();
+     c1_statReenter();
+     
      c2_numOfVisits();
      c2_avgSignal();
+     c2_timeSignal();
      c2_avgMins();
+     
      c3_numOfVisits();
      c3_avgSignal();
+     c3_timeSignal();
      c3_avgMins();
+     
      c4_numOfVisits();
      c4_avgSignal();
+     c4_timeSignal();
      c4_avgMins();
      test(); 
     
@@ -81,6 +88,26 @@ $(function c1_avgMins(){
         }
     }); 
 });
+
+$(function c1_statReenter(){                      
+    $.ajax({
+        method:'get',
+        url:'c1_statReenter',
+        success:function(response){
+             //alert(response);
+             var myObject;
+             myObject = JSON.parse(response);//
+             alert(JSON.stringify(myObject));
+            //var renderDiv = 'c1_statReenter';
+            //_avgMins(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+
 //---------------------------------------------------Sensor 02 -----------------
 //------------------------------------------------------------------------------
 $(function c2_numOfVisits() {   
@@ -111,6 +138,22 @@ $(function c2_avgSignal(){
             alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
+});
+
+$(function c2_timeSignal(){  
+   $.ajax({
+        method:'get',
+        url:'c2_timeSignal', 
+        success:function(response){
+            //alert(response);
+            var renderDiv = 'c2_timeSignal';
+            _timeSignal(response, renderDiv)   
+        }, 
+        error:function(response){
+           alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+    
 });
 
 $(function c2_avgMins(){                      
@@ -159,6 +202,22 @@ $(function c3_avgSignal(){
     }); 
 });
 
+$(function c3_timeSignal(){  
+   $.ajax({
+        method:'get',
+        url:'c3_timeSignal', 
+        success:function(response){
+            //alert(response);
+            var renderDiv = 'c3_timeSignal';
+            _timeSignal(response, renderDiv)   
+        }, 
+        error:function(response){
+           alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+    
+});
+
 $(function c3_avgMins(){                      
     $.ajax({
         method:'get',
@@ -205,6 +264,22 @@ $(function c4_avgSignal(){
     }); 
 });
 
+$(function c4_timeSignal(){  
+   $.ajax({
+        method:'get',
+        url:'c4_timeSignal', 
+        success:function(response){
+            //alert(response);
+            var renderDiv = 'c4_timeSignal';
+            _timeSignal(response, renderDiv)   
+        }, 
+        error:function(response){
+           alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+    
+});
+
 $(function c4_avgMins(){                      
     $.ajax({
         method:'get',
@@ -220,11 +295,12 @@ $(function c4_avgMins(){
     }); 
 });
 
+
 //------------------------------------ graphic common functions -- -------------
 //------------------------------------------------------------------------------ 
 function _numOfVisits(response, renderDiv) { 
     var myObject;
-    myObject = JSON.parse(response);//obj to js
+    myObject = JSON.parse(response);//
     //alert(JSON.stringify(myObject));
             
     var options = Highcharts.chart({
@@ -255,9 +331,12 @@ function _numOfVisits(response, renderDiv) {
               }
             },
             legend: {
-                layout: 'vertical',
+                layout: 'horizontal',
                 align: 'right',
-                verticalAlign: 'middle'
+                itemStyle: {
+                    color: 'gray',
+                    fontWeight: '1px'
+                }
             },
             plotOptions: {
                 series: {
@@ -265,7 +344,7 @@ function _numOfVisits(response, renderDiv) {
                 }
             },
             series: [{
-                    name: 'Customers in the store',
+                    name: 'Visitors',
                     data: myObject
             }]
     });
@@ -275,6 +354,17 @@ function _avgSignal(response, renderDiv){
     var myObject;
     myObject = JSON.parse(response);//obj to js
     //alert(myObject[0].hash_address);
+    
+    Highcharts.Color.prototype.parsers.push({
+	regex: /^[a-z]+$/,
+        parse: function (result) {
+    	var rgb = new RGBColor(result[0]);
+        if (rgb.ok) {
+        	return [rgb.r, rgb.g, rgb.b, 1]; // returns rgba to Highcharts
+            }
+        }
+    });
+
     var options = Highcharts.chart({
             chart: {
                 renderTo: renderDiv,
@@ -287,8 +377,9 @@ function _avgSignal(response, renderDiv){
               }
             },
             title: {
-                text: 'Reception strength during 10 minutes'
+                text: 'Reception strength over 10 minutes'
             },
+            colors: ['#66ccff', '#0392cf', '#7bc043', '#ffcf40', '#FF8F0B'],
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
             },
@@ -302,9 +393,18 @@ function _avgSignal(response, renderDiv){
                     showInLegend: true
                 }
             },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                itemStyle: {
+                    color: 'gray',
+                    fontWeight: '1px',
+                    fontSize: '12px'
+                }
+            },
             series: [{
                 name: 'Visitors',
-                colorByPoint: true,
+                colorByPoint: true,               
                 data: myObject
                 }]    
     });     
@@ -324,7 +424,7 @@ function _timeSignal(response, renderDiv){
               }
         },
         title: {
-            text: 'Reception strength during 10 minutes '
+            text: 'Reception strength over 10 minutes '
         },
         
         xAxis: {
@@ -412,7 +512,7 @@ function _avgMins(response, renderDiv){
                 height: '70%'
             },
             title: {
-                text: 'Time of customer in the store'
+                text: 'Time length of customer in store'
             },
             xAxis: {
                 type: '',
@@ -498,6 +598,11 @@ $(function test(){
                     },
                     showInLegend: true
                 }
+            },
+            legend: {
+                layout: 'horizontal',
+                itemMarginTop: 3,
+                itemMarginBottom: 3
             },
             series: [{
                 name: 'Brands',
