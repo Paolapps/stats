@@ -6,7 +6,15 @@
       <div class="row">
         <div class="col-sm-4 col-sm-offset-2">
             <h5>General Stats Sensor-3</h5> 
-            <div class="well graph" id="stats_3"></div>
+            <div class="well graph" id="stats_3">
+                <p id="c3_statCust"></p>
+                <p id="c3_statTime"></p>
+                <p id="c3_statDB"></p>
+                <p id="c3_statLongTime"></p>
+                <p id="c3_statHighDB"></p>
+                <p id="c3_statBusyTime"></p>
+                <p id="c3_statReenter"></p>
+            </div>
         </div>
         <div class="col-sm-4">
             <h5>Reception strength Sensor-3</h5>

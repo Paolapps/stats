@@ -364,8 +364,7 @@ class Sensor_01_Controller extends Controller
     
     //group hash_address e intervalos de tiempo with average time in store
     public function c1_avgMins(){
-      
-        $minutes = \DB::table('corner01_inputs')
+         $minutes = \DB::table('corner01_inputs')
         	    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
                     ->groupBy('hash_address')
                     ->orderBy('avgMin', 'DESC')
@@ -378,8 +377,7 @@ class Sensor_01_Controller extends Controller
          $visitors = \DB::table('corner01_inputs')
                     ->get()->keyBy('hash_address');
          $totalVisitors = count($visitors);
-
-        return response()->json($totalVisitors);
+         return response()->json($totalVisitors);
     }
                 
     //average time
@@ -511,31 +509,9 @@ class Sensor_01_Controller extends Controller
         
         return json_encode(sizeof($custReturn));
     }
-   
-
-    //people rentering
     
-    //in which sensor the signal is higher, how many people, how long
-    //select all addresses in db with repeats  
 }
-  /*$avgSignal_1 = Sensor_01_Controller::signal_min_1();
-     $avgSignal_2 = Sensor_01_Controller::signal_min_2();
-     $avgSignal_3 = Sensor_01_Controller::signal_min_3();
-     $avgSignal_4 = Sensor_01_Controller::signal_min_4();
-     $avgSignal_5 = Sensor_01_Controller::signal_min_5();
-     $avgSignal_6 = Sensor_01_Controller::signal_min_6(); 
-     $avgSignal_7 = Sensor_01_Controller::signal_min_7(); 
-     $avgSignal_8 = Sensor_01_Controller::signal_min_8();
-     $avgSignal_9 = Sensor_01_Controller::signal_min_8(); 
-     $avgSignal_10 = Sensor_01_Controller::signal_min_10();
-     
-     $dB_min = array();
-     $dB_min = [$avgSignal_1, $avgSignal_2, $avgSignal_3, $avgSignal_4,
-                    $avgSignal_5, $avgSignal_6, $avgSignal_7, $avgSignal_8, 
-                    $avgSignal_9, $avgSignal_10];
-      
-     return json_encode($dB_min); */
-        //return response()->json($avgSignal_1); 
+  
         
        
     

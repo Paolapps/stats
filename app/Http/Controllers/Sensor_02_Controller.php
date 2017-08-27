@@ -371,6 +371,146 @@ class Sensor_02_Controller extends Controller
                     ->get()->toArray();
          return json_encode($minutes); 
     }  
+    
+    //total customers per sensor
+    public function c2_statCust(){
+         $visitors = \DB::table('corner02_inputs')
+                    ->get()->keyBy('hash_address');
+         $totalVisitors = count($visitors);
+
+        return response()->json($totalVisitors);
+    }
+                
+    //average time
+    public function c2_statTime(){
+        $time = \DB::table('corner02_inputs')
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
+                    ->groupBy('hash_address')
+                    ->get()->toArray();
+        $totalTime = count($time);
+        $colTime = array_column($time,'avgMin');
+        //loop, sumar y dividir en count
+        return response()->json($totalTime);
+    }
+    //average signal 
+    public function c2_statDB(){
+        $decibels = \DB::table('corner02_inputs')
+        	    ->select('hash_address', DB::raw('round(avg(signal_db)) as avgSignal'))
+                    ->groupBy('hash_address')
+                    ->orderBy('avgSignal', 'DESC')
+                    ->get()->toArray();
+        //loop, sumar y dividir en count
+        $countdB = count($decibels);
+        $colDB = array_column($decibels,'avgSignal');
+       
+        return response()->json($colDB); 
+    }
+    
+    //longest time in the store
+    public function c2_statLongTime(){
+        $result = \DB::table('corner02_inputs')
+                    
+        			->select('hash_address', DB::raw('count(*) as total'), 
+        				DB::raw('max(time_sec) as max'),
+        				DB::raw('min(time_sec) as min'),
+        				DB::raw('max(time_sec) - min(time_sec) as timing'))
+                    ->groupBy('hash_address')
+                    ->orderBy('timing', 'DESC')
+                    ->get();
+    }
+    
+    //best reception
+    public function c2_statHighDB(){
+        
+    }
+    //bussiest time
+    public function c2_statBusyTime(){
+        
+    }
+    
+    // person more than one time in the store
+    public function c2_statReenter(){
+        //arrays queries per minute
+        $data_min_1 = Sensor_02_Controller::min_01();
+        $data_min_2 = Sensor_02_Controller::min_02();
+        $data_min_3 = Sensor_02_Controller::min_03();
+        $data_min_4 = Sensor_02_Controller::min_04();
+        $data_min_5 = Sensor_02_Controller::min_05();
+        $data_min_6 = Sensor_02_Controller::min_06();
+        $data_min_7 = Sensor_02_Controller::min_07();
+        $data_min_8 = Sensor_02_Controller::min_08();
+        $data_min_9 = Sensor_02_Controller::min_09();
+        $data_min_10 = Sensor_02_Controller::min_10();
+        
+        //getting hash_address column for each minute
+        $col_address_1 = array_column($data_min_1,'hash_address');
+        $col_address_2 = array_column($data_min_2,'hash_address');
+        $col_address_3 = array_column($data_min_3,'hash_address');
+        $col_address_4 = array_column($data_min_4,'hash_address');
+        $col_address_5 = array_column($data_min_5,'hash_address');
+        $col_address_6 = array_column($data_min_6,'hash_address');
+        $col_address_7 = array_column($data_min_7,'hash_address');
+        $col_address_8 = array_column($data_min_8,'hash_address');
+        $col_address_9 = array_column($data_min_9,'hash_address');
+        $col_address_10 = array_column($data_min_10,'hash_address');
+        
+        //process between minute 1 and 2
+        //---------------------------------
+        $custOut_min_12 = array_diff($col_address_1, $col_address_2);//differences, customers out & new customers
+        $custJoin_min_12 = array_merge($col_address_1, $col_address_2);//join both arrays min_01 and min_02 
+        $custReal_in_12 = array_count_values($custJoin_min_12);//removing customer repeats from join
+        
+        //process between 1&2 minutes join + 3rd minute 
+        $custOut_min_123 = array_diff($custReal_in_12, $col_address_3);
+        $custJoin_min_123 = array_merge($custReal_in_12, $col_address_3);
+        $custReal_in_123 = array_count_values($custJoin_min_123);
+        
+        //process between 1&2&3 minutes join + 4th minute 
+        $custOut_min_1234 = array_diff($custReal_in_123, $col_address_4);
+        $custJoin_min_1234 = array_merge($custReal_in_123, $col_address_4);
+        $custReal_in_1234 = array_count_values($custJoin_min_1234);
+        
+        //process between 1&2&3&4 minutes join + 5th minute 
+        $custOut_min_12345 = array_diff($custReal_in_1234, $col_address_5);
+        $custJoin_min_12345 = array_merge($custReal_in_1234, $col_address_5);
+        $custReal_in_12345 = array_count_values($custJoin_min_12345);
+        
+        //process between 1&2&3&4&5 minutes join + 6th minute 
+        $custOut_min_123456 = array_diff($custReal_in_12345, $col_address_6);
+        $custJoin_min_123456 = array_merge($custReal_in_12345, $col_address_6);
+        $custReal_in_123456 = array_count_values($custJoin_min_123456);
+        
+        //process between 1&2&3&4&5&6 minutes join + 7th minute 
+        $custOut_min_1234567 = array_diff($custReal_in_123456, $col_address_7);
+        $custJoin_min_1234567 = array_merge($custReal_in_123456, $col_address_7);
+        $custReal_in_1234567 = array_count_values($custJoin_min_1234567);
+        
+        //process between 1&2&3&4&5&6&7 minutes join + 8th minute 
+        $custOut_min_12345678 = array_diff($custReal_in_1234567, $col_address_8);
+        $custJoin_min_12345678 = array_merge($custReal_in_1234567, $col_address_8);
+        $custReal_in_12345678 = array_count_values($custJoin_min_12345678);
+        
+        //process between 1&2&3&4&5&6&7&8 minutes join + 9th minute 
+        $custOut_min_123456789 = array_diff($custReal_in_12345678, $col_address_9);
+        $custJoin_min_123456789 = array_merge($custReal_in_12345678, $col_address_9);
+        $custReal_in_123456789 = array_count_values($custJoin_min_123456789);
+        
+        //process between 1&2&3&4&5&6&7&8&9 minutes join + 10th minute 
+        $custOut_min_12345678910 = array_diff($custReal_in_123456789, $col_address_10);
+        $custJoin_min_12345678910 = array_merge($custReal_in_123456789, $col_address_10);
+        $custReal_in_12345678910 = array_count_values($custJoin_min_12345678910);
+        
+        //Join array data of out & new customers of each minute
+        $outerJoins = array_merge($custOut_min_12, $custOut_min_123, $custOut_min_1234,
+                $custOut_min_12345, $custOut_min_123456, $custOut_min_1234567, 
+                $custOut_min_12345678, $custOut_min_123456789, $custOut_min_12345678910);
+        
+        //Difference between customers in joins and and the ones outerjoins
+        $custReturn = array_diff($custReal_in_12345678910, $outerJoins);
+        
+        return json_encode(sizeof($custReturn));
+    }
+   
 
 }
 

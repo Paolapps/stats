@@ -1,27 +1,32 @@
 
 
 $(document).ready(function(){
-     
+     //--------------------------------functions sensor 01
      c1_numOfVisits();
      c1_avgSignal();
      c1_timeSignal();
      c1_avgMins();
      c1_statReenter();
-     
+     c1_statCust();
+     //--------------------------------functions sensor 02
      c2_numOfVisits();
      c2_avgSignal();
      c2_timeSignal();
      c2_avgMins();
-     
+     c2_statReenter();
+     //--------------------------------functions sensor 03
      c3_numOfVisits();
      c3_avgSignal();
      c3_timeSignal();
      c3_avgMins();
-     
+     c3_statReenter();
+     //--------------------------------functions sensor 04
      c4_numOfVisits();
      c4_avgSignal();
      c4_timeSignal();
      c4_avgMins();
+     c4_statReenter();
+     
      test(); 
     
 });
@@ -95,11 +100,8 @@ $(function c1_statReenter(){
         url:'c1_statReenter',
         success:function(response){
              //alert(response);
-             var myObject;
-             myObject = JSON.parse(response);//
-             alert(JSON.stringify(myObject));
-            //var renderDiv = 'c1_statReenter';
-            //_avgMins(response, renderDiv);    
+             var renderDiv = '#c1_statReenter';
+            _statReenter(response, renderDiv);    
         }, 
         error:function(response){
             alert("Error Connecting to Webservice.\nTry again.");
@@ -107,7 +109,24 @@ $(function c1_statReenter(){
     }); 
 });
 
-
+$ (function c1_statCust(){
+    $.ajax({
+        method:'get',
+        url:'c1_statCust',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c1_statCust';
+             _statCust(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+/*
+function _statCust(response, renderDiv) {  
+    $(renderDiv).html(response);       
+}*/
 //---------------------------------------------------Sensor 02 -----------------
 //------------------------------------------------------------------------------
 $(function c2_numOfVisits() {   
@@ -164,6 +183,36 @@ $(function c2_avgMins(){
             //alert(response);
             var renderDiv = 'c2_avgMins';
             _avgMins(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c2_statReenter(){                      
+    $.ajax({
+        method:'get',
+        url:'c2_statReenter',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c2_statReenter';
+            _statReenter(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$ (function c2_statCust(){
+    $.ajax({
+        method:'get',
+        url:'c2_statCust',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c2_statCust';
+             _statCust(response, renderDiv);    
         }, 
         error:function(response){
             alert("Error Connecting to Webservice.\nTry again.");
@@ -232,6 +281,36 @@ $(function c3_avgMins(){
         }
     }); 
 });
+
+$(function c3_statReenter(){                      
+    $.ajax({
+        method:'get',
+        url:'c3_statReenter',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c3_statReenter';
+            _statReenter(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$ (function c3_statCust(){
+    $.ajax({
+        method:'get',
+        url:'c3_statCust',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c3_statCust';
+             _statCust(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
 //---------------------------------------------------Sensor 04 -----------------
 //------------------------------------------------------------------------------
 $(function c4_numOfVisits() {   
@@ -276,8 +355,7 @@ $(function c4_timeSignal(){
         error:function(response){
            alert("Error Connecting to Webservice.\nTry again.");
         }
-    }); 
-    
+    });    
 });
 
 $(function c4_avgMins(){                      
@@ -295,7 +373,44 @@ $(function c4_avgMins(){
     }); 
 });
 
+$(function c4_statReenter(){                      
+    $.ajax({
+        method:'get',
+        url:'c4_statReenter',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c4_statReenter';
+            _statReenter(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
 
+$ (function c4_statCust(){
+    $.ajax({
+        method:'get',
+        url:'c4_statCust',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c4_statCust';
+             _statCust(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+//------------------------------ retrieving data common functions --------------
+//------------------------------------------------------------------------------ 
+function _statReenter(response, renderDiv) {  
+    $(renderDiv).html(response);       
+}
+
+function _statCust(response, renderDiv) {  
+    $(renderDiv).html(response);       
+}
 //------------------------------------ graphic common functions -- -------------
 //------------------------------------------------------------------------------ 
 function _numOfVisits(response, renderDiv) { 

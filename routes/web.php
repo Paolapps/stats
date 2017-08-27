@@ -39,6 +39,13 @@ Route::get('c2_timeSignal', 'Sensor_02_Controller@c2_timeSignal');
 Route::get('c2_avgSignal', 'Sensor_02_Controller@c2_avgSignal');
 Route::get('c2_numOfVisits', 'Sensor_02_Controller@c2_numOfVisits');
 //stats
+Route::get('c2_statCust', 'Sensor_02_Controller@c2_statCust');
+Route::get('c2_statTime', 'Sensor_02_Controller@c2_statTime');
+Route::get('c2_statDB', 'Sensor_02_Controller@c2_statDB');
+Route::get('c2_statLongTime', 'Sensor_02_Controller@c2_statLongTime');
+Route::get('c2_statHighDB', 'Sensor_02_Controller@c2_statHighDB');
+Route::get('c2_statBusyTime', 'Sensor_02_Controller@c2_statBusyTime');
+Route::get('c2_statReenter', 'Sensor_02_Controller@c2_statReenter');
 
 //------------------------------------------------------Sensor 03 routes--------
 Route::get('sensor_03', 'Sensor_03_Controller@sensor_03');
@@ -48,6 +55,13 @@ Route::get('c3_timeSignal', 'Sensor_03_Controller@c3_timeSignal');
 Route::get('c3_avgSignal', 'Sensor_03_Controller@c3_avgSignal');
 Route::get('c3_numOfVisits', 'Sensor_03_Controller@c3_numOfVisits');
 //stats
+Route::get('c3_statCust', 'Sensor_03_Controller@c3_statCust');
+Route::get('c3_statTime', 'Sensor_03_Controller@c3_statTime');
+Route::get('c3_statDB', 'Sensor_03_Controller@c3_statDB');
+Route::get('c3_statLongTime', 'Sensor_03_Controller@c3_statLongTime');
+Route::get('c3_statHighDB', 'Sensor_03_Controller@c3_statHighDB');
+Route::get('c3_statBusyTime', 'Sensor_03_Controller@c3_statBusyTime');
+Route::get('c3_statReenter', 'Sensor_03_Controller@c3_statReenter');
 
 //------------------------------------------------------Sensor 04 routes--------
 Route::get('sensor_04', 'Sensor_04_Controller@sensor_04');
@@ -57,5 +71,11 @@ Route::get('c4_timeSignal', 'Sensor_04_Controller@c4_timeSignal');
 Route::get('c4_avgSignal', 'Sensor_04_Controller@c4_avgSignal');
 Route::get('c4_numOfVisits', 'Sensor_04_Controller@c4_numOfVisits');
 //stats
-
+Route::get('c4_statCust', 'Sensor_04_Controller@c4_statCust');
+Route::get('c4_statTime', 'Sensor_04_Controller@c4_statTime');
+Route::get('c4_statDB', 'Sensor_04_Controller@c4_statDB');
+Route::get('c4_statLongTime', 'Sensor_04_Controller@c4_statLongTime');
+Route::get('c4_statHighDB', 'Sensor_04_Controller@c4_statHighDB');
+Route::get('c4_statBusyTime', 'Sensor_04_Controller@c4_statBusyTime');
+Route::get('c4_statReenter', 'Sensor_04_Controller@c4_statReenter');
 

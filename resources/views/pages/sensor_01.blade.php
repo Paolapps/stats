@@ -10,7 +10,7 @@
                 <p id="c1_statCust"></p>
                 <p id="c1_statTime"></p>
                 <p id="c1_statDB"></p>
-                <p id="c1_statLongTime"></p>h
+                <p id="c1_statLongTime"></p>
                 <p id="c1_statHighDB"></p>
                 <p id="c1_statBusyTime"></p>
                 <p id="c1_statReenter"></p>
