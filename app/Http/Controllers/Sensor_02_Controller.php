@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * Stats of 4 data sensors.
+ * Presented by: Paola Sanabria
+ * To: Kepler Analytics
+ * Date: 28/08/17
+ * 
+ * File: Sensor_02_Controller
+ * Description: Contains all the functions of Sensor 2
+ */
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Corner02_input;

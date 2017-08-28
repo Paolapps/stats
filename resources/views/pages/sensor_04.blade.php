@@ -7,13 +7,19 @@
         <div class="col-sm-4 col-sm-offset-2">
             <h5>General Stats Sensor-4</h5> 
             <div class="well graph" id="stats_4">
-                <p id="c4_statCust"></p>
-                <p id="c4_statTime"></p>
-                <p id="c4_statDB"></p>
-                <p id="c4_statLongTime"></p>
-                <p id="c4_statHighDB"></p>
-                <p id="c4_statBusyTime"></p>
-                <p id="c4_statReenter"></p>
+               <div class="row">
+                   </br></br>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <p class="stats" ><span class="data1" id="c4_statCust"></span></br>Total visitors</p>
+                        <p class="stats" ><span class="data2" id="c4_statTime"></span></br>Average time</p>
+                        <p class="stats" ><span class="data3" id="c4_statDB"></span></br>Signal</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="stats" ><span class="data4" id="c4_statLongTime"></span></br>Top time</p>
+                        <p class="stats" ><span class="data5" id="c4_statReenter"></span></br>Returning customers</p>
+                        <p class="stats" ><span class="data6" id="c4_statHighDB"></span></br>Top signal</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-sm-4">

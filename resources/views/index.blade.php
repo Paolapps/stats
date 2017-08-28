@@ -7,25 +7,41 @@
        <div class="row">
         <div class="col-sm-4 col-sm-offset-2 aButton">
           <a href="sensor_01">
-            <div class="well"> 
-            <h4>Sensor-1</h4>         
-            <div class="row text-center">
-                <div class="col-sm-4"><p>10 Customers</p></div>
-                <div class="col-sm-4"><p>Weak Signal</p></div>
-                <div class="col-sm-4"><p>5 Minutes</p></div>
-            </div>
+            <h5>Sensor-1</h5>
+            <div class="well">          
+                <div class="row">
+                    </br>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <p class="stats" ><span class="data1" id="c1_statCust"></span></br>Total visitors</p>
+                        <p class="stats" ><span class="data2" id="c1_statTime"></span></br>Average time</p>
+                        <p class="stats" ><span class="data3" id="c1_statDB"></span></br>Signal</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="stats" ><span class="data4" id="c1_statLongTime"></span></br>Top time</p>
+                        <p class="stats" ><span class="data5" id="c1_statReenter"></span></br>Returning customers</p>
+                        <p class="stats" ><span class="data6" id="c1_statHighDB"></span></br>Top signal</p>
+                    </div>
+                </div>
            </div>
           </a>
         </div>
         <div class="col-sm-4 aButton">
          <a href="sensor_02">
-          <div class="well">
-            <h4>Sensor-2</h4>
-            <div class="row text-center">
-                <div class="col-sm-4"><p>10 Customers</p></div>
-                <div class="col-sm-4"><p>Weak Signal</p></div>
-                <div class="col-sm-4"><p>5 Minutes</p></div>
-            </div>
+          <h5>Sensor-2</h5>
+          <div class="well">           
+            <div class="row">
+                </br>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <p class="stats" ><span class="data1" id="c2_statCust"></span></br>Total visitors</p>
+                        <p class="stats" ><span class="data2" id="c2_statTime"></span></br>Average time</p>
+                        <p class="stats" ><span class="data3" id="c2_statDB"></span></br>Signal</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="stats" ><span class="data4" id="c2_statLongTime"></span></br>Top time</p>
+                        <p class="stats" ><span class="data5" id="c2_statReenter"></span></br>Returning customers</p>
+                        <p class="stats" ><span class="data6" id="c2_statHighDB"></span></br>Top signal</p>
+                    </div>
+                </div>
           </div>
          </a>
         </div>
@@ -34,57 +50,46 @@
       <div class="row">
         <div class="col-sm-4 col-sm-offset-2 aButton">
          <a href="sensor_03">
-          <div class="well">
-            <h4>Sensor-3</h4>
-            <div class="row text-center">
-                <div class="col-sm-4"><p>10 Customers</p></div>
-                <div class="col-sm-4"><p>Weak Signal</p></div>
-                <div class="col-sm-4"><p>5 Minutes</p></div>
-            </div>
+          <h5>Sensor-3</h5>
+            <div class="well">
+                <div class="row">
+                    </br>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <p class="stats" ><span class="data1" id="c3_statCust"></span></br>Total visitors</p>
+                        <p class="stats" ><span class="data2" id="c3_statTime"></span></br>Average time</p>
+                        <p class="stats" ><span class="data3" id="c3_statDB"></span></br>Signal</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="stats" ><span class="data4" id="c3_statLongTime"></span></br>Top time</p>
+                        <p class="stats" ><span class="data5" id="c3_statReenter"></span></br>Returning customers</p>
+                        <p class="stats" ><span class="data6" id="c3_statHighDB"></span></br>Top signal</p>
+                    </div>
+                </div>
           </div>
          </a>
         </div>
         <div class="col-sm-4 aButton">
          <a href="sensor_04">
+          <h5>Sensor-4</h5>
           <div class="well">
-            <h4>Sensor-4</h4>
-            <div class="row text-center">
-                <div class="col-sm-4"><p>10 Customers</p></div>
-                <div class="col-sm-4"><p>Weak Signal</p></div>
-                <div class="col-sm-4"><p>5 Minutes</p></div>
-            </div>
+                <div class="row">
+                   </br>
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <p class="stats" ><span class="data1" id="c4_statCust"></span></br>Total visitors</p>
+                        <p class="stats" ><span class="data2" id="c4_statTime"></span></br>Average time</p>
+                        <p class="stats" ><span class="data3" id="c4_statDB"></span></br>Signal</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="stats" ><span class="data4" id="c4_statLongTime"></span></br>Top time</p>
+                        <p class="stats" ><span class="data5" id="c4_statReenter"></span></br>Returning customers</p>
+                        <p class="stats" ><span class="data6" id="c4_statHighDB"></span></br>Top signal</p>
+                    </div>
+                </div>
           </div>
          </a>
         </div>
       </div>
-       <div class="row">
-        <div class="col-sm-4 col-sm-offset-2 aButton">
-          <a href="general">
-          <div class="well">
-            <h4>General Time</h4>
-            <i class="fa fa-circle peak" aria-hidden="true">Peak</i>
-            <i class="fa fa-circle moderate" aria-hidden="true">Moderate</i>
-            <i class="fa fa-circle low" aria-hidden="true">Low</i>
-            
-            <i class="fa fa-universal-access fa-3x peak" aria-hidden="true"></i>
-            <i class="fa fa-universal-access fa-3x moderate" aria-hidden="true"></i>
-            <i class="fa fa-universal-access fa-3x low" aria-hidden="true"></i>
-          </div>
-          </a>
-        </div>
-        <div class="col-sm-4 aButton">
-          
-            <h5>Number of visitors over time Sensor-1</h5>
-           <div class="well graph" id="c1_numOfVisits"></div> 
-          
-            
-        </div>
-           <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0"> 
-            <h5>Reception strength Sensor-1</h5>
-            <div class="well graph" id="c1_avgSignal"></div>
-        </div>
-       </div>
+      
       </div>
 
     </div>    

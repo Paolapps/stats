@@ -1,15 +1,15 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+ * Stats of 4 data sensors.
+ * Presented by: Paola Sanabria
+ * To: Kepler Analytics
+ * Date: 28/08/17
+ * 
+ * File: web.php
+ * Description: Contains all the routes of the site
+ */
+
 //-----------------------------------------------General Controller routes-----
 Route::get('/', 'GeneralController@index');
 Route::get('general', 'GeneralController@general');

@@ -1,3 +1,33 @@
+/*
+ * Stats of 4 data sensors.
+ * Presented by: Paola Sanabria
+ * To: Kepler Analytics
+ * Date: 28/08/17
+ * 
+ * File: main.css
+ * Description: Contains all css styles
+ */
+
+
+.stats{
+    font-size: 15px;
+}
+.data1, .data2, .data3, .data4, .data5, .data6{
+   font-weight:bold;
+   font-size: 25px;
+}
+.data1{
+   color:#1C9CD3;
+}
+.data2{
+    color: #c97979;
+}
+.data4{
+    color:#d9534f;
+}
+.data5{
+    color: #1abc9c;
+}
 .peak{
      color: #FF8F0B;
 }
@@ -49,10 +79,11 @@ h2{
 }
 h4{
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 25px;
     color: #1abc9c;
-    text-align: center;
+    text-align: left;
+    
 }
 h5{
     font-size: 16px;
@@ -84,7 +115,7 @@ p{
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
 }
 .aButton .well:hover {
-  background-color: #DFE2E6;
+  background-color: #FFF;
    text-decoration: none;
   -webkit-transition: background-color 0.7s ease-out;
   -moz-transition: background-color 0.7s ease-out;
@@ -130,6 +161,13 @@ p{
         font-size: 9px;
         padding-top: 3px;
     }
+    .stats{
+    font-size: 12px;
+    }
+    .data1, .data2, .data3, .data4, .data5, .data6{
+       font-weight:bold;
+       font-size: 22px;
+    }
 }
 @media only screen and (max-width : 319px)
 {  
@@ -154,6 +192,13 @@ p{
         font-size: 9px;
         padding-top: 3px;
     }
+    .stats{
+    font-size: 12px;
+    }
+    .data1, .data2, .data3, .data4, .data5, .data6{
+       font-weight:bold;
+       font-size: 22px;
+    }
 }
 @media only screen and (min-width : 320px) and (max-width : 480px)
 {
@@ -177,6 +222,13 @@ p{
    .copyright p {
         font-size: 9px;
         padding-top: 3px;
+    }
+    .stats{
+    font-size: 12px;
+    }
+    .data1, .data2, .data3, .data4, .data5, .data6{
+       font-weight:bold;
+       font-size: 22px;
     }
 }
 
@@ -204,6 +256,13 @@ p{
         font-size: 9px;
         padding-top: 3px;
     } 
+    .stats{
+    font-size: 12px;
+    }
+    .data1, .data2, .data3, .data4, .data5, .data6{
+       font-weight:bold;
+       font-size: 22px;
+    }
 }
 
 /*3333333////////////////////////////////////////////////////////////////////////////*/

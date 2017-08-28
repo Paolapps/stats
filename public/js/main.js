@@ -1,50 +1,62 @@
 
-
+/*
+ * Stats of 4 data sensors.
+ * Presented by: Paola Sanabria
+ * To: Kepler Analytics
+ * Date: 28/08/17
+ * 
+ * File: main.js
+ * Description: Contains all the functions to render charts and stats
+ */
 $(document).ready(function(){
      //--------------------------------functions sensor 01
-     c1_numOfVisits();
-     c1_avgSignal();
-     c1_timeSignal();
-     c1_avgMins();
      c1_statReenter();
      c1_statCust();
      c1_statTime();
      c1_statDB();
      c1_statLongTime();
-     c1_statHighDB();       
+     c1_statHighDB();
+     c1_numOfVisits();
+     c1_avgSignal();
+     c1_timeSignal();
+     c1_avgMins();
+            
      //--------------------------------functions sensor 02
-     c2_numOfVisits();
-     c2_avgSignal();
-     c2_timeSignal();
-     c2_avgMins();
      c2_statReenter();
      c2_statCust();
      c2_statTime();
      c2_statDB();
      c2_statLongTime();
      c2_statHighDB(); 
+     c2_numOfVisits();
+     c2_avgSignal();
+     c2_timeSignal();
+     c2_avgMins();
+     
      //--------------------------------functions sensor 03
-     c3_numOfVisits();
-     c3_avgSignal();
-     c3_timeSignal();
-     c3_avgMins();
      c3_statReenter();
      c3_statCust();
      c3_statTime();
      c3_statDB();
      c3_statLongTime();
-     c3_statHighDB(); 
+     c3_statHighDB();
+     c3_numOfVisits();
+     c3_avgSignal();
+     c3_timeSignal();
+     c3_avgMins();
+      
      //--------------------------------functions sensor 04
-     c4_numOfVisits();
-     c4_avgSignal();
-     c4_timeSignal();
-     c4_avgMins();
      c4_statReenter();
      c4_statCust();
      c4_statTime();
      c4_statDB();
      c4_statLongTime();
      c4_statHighDB(); 
+     c4_numOfVisits();
+     c4_avgSignal();
+     c4_timeSignal();
+     c4_avgMins();
+     
     
 });
 
