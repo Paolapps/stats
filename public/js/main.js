@@ -72,7 +72,7 @@ $(function c1_numOfVisits() {
            _numOfVisits(response, renderDiv); 
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -87,7 +87,7 @@ $(function c1_avgSignal(){
            _avgSignal(response, renderDiv); 
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -102,7 +102,7 @@ $(function c1_timeSignal(){
             _timeSignal(response, renderDiv)   
         }, 
         error:function(response){
-           alert("Error Connecting to Webservice.\nTry again.");
+          // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
     
@@ -118,7 +118,7 @@ $(function c1_avgMins(){
             _avgMins(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -133,7 +133,7 @@ $(function c1_statReenter(){
             _statReenter(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -148,7 +148,7 @@ $(function c1_statCust(){
              _statCust(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -163,7 +163,7 @@ $(function c1_statTime(){
              _statTime(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -178,7 +178,7 @@ $(function c1_statDB(){
             _statDB(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -193,7 +193,7 @@ $(function c1_statLongTime(){
              _statLongTime(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -208,7 +208,7 @@ $(function c1_statHighDB(){
              _statHighDB(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -226,7 +226,7 @@ $(function c2_numOfVisits() {
            _numOfVisits(response, renderDiv); 
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -241,7 +241,7 @@ $(function c2_avgSignal(){
            _avgSignal(response, renderDiv); 
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -256,7 +256,7 @@ $(function c2_timeSignal(){
             _timeSignal(response, renderDiv)   
         }, 
         error:function(response){
-           alert("Error Connecting to Webservice.\nTry again.");
+          // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
     
@@ -272,7 +272,7 @@ $(function c2_avgMins(){
             _avgMins(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -287,7 +287,7 @@ $(function c2_statReenter(){
             _statReenter(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -302,7 +302,7 @@ $ (function c2_statCust(){
              _statCust(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -317,7 +317,7 @@ $(function c2_statTime(){
              _statTime(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -332,7 +332,7 @@ $(function c2_statDB(){
             _statDB(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -347,7 +347,7 @@ $(function c2_statLongTime(){
              _statLongTime(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -362,7 +362,7 @@ $(function c2_statHighDB(){
              _statHighDB(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -379,7 +379,7 @@ $(function c3_numOfVisits() {
            _numOfVisits(response, renderDiv); 
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -394,7 +394,7 @@ $(function c3_avgSignal(){
            _avgSignal(response, renderDiv); 
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -409,7 +409,7 @@ $(function c3_timeSignal(){
             _timeSignal(response, renderDiv)   
         }, 
         error:function(response){
-           alert("Error Connecting to Webservice.\nTry again.");
+          // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
     
@@ -425,7 +425,7 @@ $(function c3_avgMins(){
             _avgMins(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -440,7 +440,7 @@ $(function c3_statReenter(){
             _statReenter(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -455,7 +455,7 @@ $ (function c3_statCust(){
              _statCust(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -470,7 +470,7 @@ $(function c3_statTime(){
              _statTime(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -485,7 +485,7 @@ $(function c3_statDB(){
             _statDB(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -500,7 +500,7 @@ $(function c3_statLongTime(){
              _statLongTime(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -515,7 +515,7 @@ $(function c3_statHighDB(){
              _statHighDB(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -532,7 +532,7 @@ $(function c4_numOfVisits() {
            _numOfVisits(response, renderDiv); 
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -547,7 +547,7 @@ $(function c4_avgSignal(){
            _avgSignal(response, renderDiv); 
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -562,7 +562,7 @@ $(function c4_timeSignal(){
             _timeSignal(response, renderDiv)   
         }, 
         error:function(response){
-           alert("Error Connecting to Webservice.\nTry again.");
+          // alert("Error Connecting to Webservice.\nTry again.");
         }
     });    
 });
@@ -577,7 +577,7 @@ $(function c4_avgMins(){
             _avgMins(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -592,7 +592,7 @@ $(function c4_statReenter(){
             _statReenter(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -607,7 +607,7 @@ $ (function c4_statCust(){
              _statCust(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -622,7 +622,7 @@ $(function c4_statTime(){
              _statTime(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -637,7 +637,7 @@ $(function c4_statDB(){
             _statDB(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -652,7 +652,7 @@ $(function c4_statLongTime(){
              _statLongTime(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });
@@ -667,7 +667,7 @@ $(function c4_statHighDB(){
              _statHighDB(response, renderDiv);    
         }, 
         error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
+           // alert("Error Connecting to Webservice.\nTry again.");
         }
     }); 
 });

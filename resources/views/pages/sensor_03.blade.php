@@ -9,14 +9,14 @@
             <div class="well graph" id="stats_3">
                <div class="row">
                    </br></br>
-                    <div class="col-sm-5 col-sm-offset-1">
+                    <div class="col-xs-5 col-xs-offset-1">
                         <p class="stats" ><span class="data1" id="c3_statCust"></span></br>Total visitors</p>
                         <p class="stats" ><span class="data2" id="c3_statTime"></span></br>Average time</p>
                         <p class="stats" ><span class="data3" id="c3_statDB"></span></br>Signal</p>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         <p class="stats" ><span class="data4" id="c3_statLongTime"></span></br>Top time</p>
-                        <p class="stats" ><span class="data5" id="c3_statReenter"></span></br>Returning customers</p>
+                        <p class="stats" ><span class="data5" id="c3_statReenter"></span></br>Returning visitors</p>
                         <p class="stats" ><span class="data6" id="c3_statHighDB"></span></br>Top signal</p>
                     </div>
                 </div>

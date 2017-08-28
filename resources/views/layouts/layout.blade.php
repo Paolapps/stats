@@ -41,11 +41,11 @@
               <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                   <li><a href="/">Home</a></li>
-                  <li><a href="general">General Stats</a></li>
                   <li><a href="sensor_01">Sensor-1</a></li>
                   <li><a href="sensor_02">Sensor-2</a></li>
                   <li><a href="sensor_03">Sensor-3</a></li>
-                  <li><a href="sensor_04">Sensor-4</a></li>               
+                  <li><a href="sensor_04">Sensor-4</a></li> 
+                  <li><a href="general">General Stats</a></li>
                 </ul>
               </div>
             </div>

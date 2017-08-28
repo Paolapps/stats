@@ -6,21 +6,21 @@
       <div class="row">
         <div class="col-sm-4 col-sm-offset-2">
             <h5>General Stats Sensor-1</h5> 
-            <div class="well graph" id="stats_1">
+           <div class="well graph">          
                 <div class="row">
                     </br></br>
-                    <div class="col-sm-5 col-sm-offset-1">
+                    <div class="col-xs-5 col-xs-offset-1">
                         <p class="stats" ><span class="data1" id="c1_statCust"></span></br>Total visitors</p>
                         <p class="stats" ><span class="data2" id="c1_statTime"></span></br>Average time</p>
                         <p class="stats" ><span class="data3" id="c1_statDB"></span></br>Signal</p>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-xs-6">
                         <p class="stats" ><span class="data4" id="c1_statLongTime"></span></br>Top time</p>
                         <p class="stats" ><span class="data5" id="c1_statReenter"></span></br>Returning customers</p>
                         <p class="stats" ><span class="data6" id="c1_statHighDB"></span></br>Top signal</p>
                     </div>
                 </div>
-            </div>
+           </div>
         </div>
         <div class="col-sm-4">
             <h5>Reception strength Sensor-1</h5>

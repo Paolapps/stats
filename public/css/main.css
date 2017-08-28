@@ -5,7 +5,7 @@
  * Date: 28/08/17
  * 
  * File: main.css
- * Description: Contains all css styles
+ * Description: Contains all css style
  */
 
 
@@ -44,6 +44,7 @@
 .graph{
   min-width: 250px;
   height: 300px;
+  min-height:150px;
   margin: 0em auto;  
 }
 
@@ -111,11 +112,10 @@ p{
     cursor:pointer;
 }
 .aButton .well:active {
-    color:red;
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
 }
 .aButton .well:hover {
-  background-color: #FFF;
+  background-color:#d1e0e0;
    text-decoration: none;
   -webkit-transition: background-color 0.7s ease-out;
   -moz-transition: background-color 0.7s ease-out;
@@ -166,7 +166,7 @@ p{
     }
     .data1, .data2, .data3, .data4, .data5, .data6{
        font-weight:bold;
-       font-size: 22px;
+       font-size: 18px;
     }
 }
 @media only screen and (max-width : 319px)
@@ -197,7 +197,7 @@ p{
     }
     .data1, .data2, .data3, .data4, .data5, .data6{
        font-weight:bold;
-       font-size: 22px;
+       font-size: 18px;
     }
 }
 @media only screen and (min-width : 320px) and (max-width : 480px)
@@ -228,7 +228,7 @@ p{
     }
     .data1, .data2, .data3, .data4, .data5, .data6{
        font-weight:bold;
-       font-size: 22px;
+       font-size: 18px;
     }
 }
 
@@ -261,7 +261,7 @@ p{
     }
     .data1, .data2, .data3, .data4, .data5, .data6{
        font-weight:bold;
-       font-size: 22px;
+       font-size: 18px;
     }
 }
 
@@ -274,6 +274,13 @@ and (orientation : landscape)
         font-size: 11px;
         padding-top: 3px;
     } 
+     .stats{
+    font-size: 12px;
+    }
+    .data1, .data2, .data3, .data4, .data5, .data6{
+       font-weight:bold;
+       font-size: 18px;
+    }
 }
 
 /*////////////////////////////////////////////////////////////////////////////*/
@@ -283,7 +290,14 @@ and (max-width : 768px)
     .copyright p{
         font-size: 11px;
         padding-top: 3px;
-    }  
+    } 
+     .stats{
+    font-size: 12px;
+    }
+    .data1, .data2, .data3, .data4, .data5, .data6{
+       font-weight:bold;
+       font-size: 18px;
+    }
 }
 
 /*/////////////////////////////////////////////////////////iPads (landscape)//*/
@@ -295,6 +309,13 @@ and (orientation : landscape)
         font-size: 11px;
         padding-top: 3px;
     }
+     .stats{
+    font-size: 12px;
+    }
+    .data1, .data2, .data3, .data4, .data5, .data6{
+       font-weight:bold;
+       font-size: 18px;
+    }
 }
 
 /*/////////////////////////////////////////////////////////iPads (landscape)//*/
@@ -305,6 +326,13 @@ and (max-width : 1024px)
         font-size: 13px;
         padding-top: 3px;
     }  
+     .stats{
+    font-size: 12px;
+    }
+    .data1, .data2, .data3, .data4, .data5, .data6{
+       font-weight:bold;
+       font-size: 18px;
+    }
 }
 
 /*//////////////////////////////////////////////////////Desktops and laptops//*/
