@@ -262,6 +262,19 @@ class Sensor_03_Controller extends Controller
         $numCust_10 = Sensor_03_Controller::count_min_10(); 
         return $avgSignal_10 = round(array_sum($dB_10)/$numCust_10);
     } 
+    
+    //---------------- COMMON function generate time per person ----------------
+    //--------------------------------------------------------------------------
+    public function generalTime() {
+        /*SELECT hash_address, round((max(time_sec)-min(time_sec))/60) as realTime 
+            FROM `corner01_inputs` group by hash_address */
+         $custTime = \DB::table('corner03_inputs')
+                    ->select('hash_address', 
+        		DB::raw('round((max(time_sec) - min(time_sec))/60) as timing'))
+                    ->groupBy('hash_address')
+                    ->get()->toArray();
+         return $custTime;
+    }
 
     public function c3_timeSignal(){  
     
@@ -363,13 +376,8 @@ class Sensor_03_Controller extends Controller
     
     //group hash_address e intervalos de tiempo with average time in store
     public function c3_avgMins(){
-      
-        $minutes = \DB::table('corner03_inputs')
-        	    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->groupBy('hash_address')
-                    ->orderBy('avgMin', 'DESC')
-                    ->get()->toArray();
-         return json_encode($minutes); 
+        $custTime = Sensor_03_Controller::generalTime();
+        return json_encode($custTime); 
     }  
     
     //total customers per sensor

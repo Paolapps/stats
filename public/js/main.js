@@ -8,26 +8,43 @@ $(document).ready(function(){
      c1_avgMins();
      c1_statReenter();
      c1_statCust();
+     c1_statTime();
+     c1_statDB();
+     c1_statLongTime();
+     c1_statHighDB();       
      //--------------------------------functions sensor 02
      c2_numOfVisits();
      c2_avgSignal();
      c2_timeSignal();
      c2_avgMins();
      c2_statReenter();
+     c2_statCust();
+     c2_statTime();
+     c2_statDB();
+     c2_statLongTime();
+     c2_statHighDB(); 
      //--------------------------------functions sensor 03
      c3_numOfVisits();
      c3_avgSignal();
      c3_timeSignal();
      c3_avgMins();
      c3_statReenter();
+     c3_statCust();
+     c3_statTime();
+     c3_statDB();
+     c3_statLongTime();
+     c3_statHighDB(); 
      //--------------------------------functions sensor 04
      c4_numOfVisits();
      c4_avgSignal();
      c4_timeSignal();
      c4_avgMins();
      c4_statReenter();
-     
-     test(); 
+     c4_statCust();
+     c4_statTime();
+     c4_statDB();
+     c4_statLongTime();
+     c4_statHighDB(); 
     
 });
 
@@ -109,7 +126,7 @@ $(function c1_statReenter(){
     }); 
 });
 
-$ (function c1_statCust(){
+$(function c1_statCust(){
     $.ajax({
         method:'get',
         url:'c1_statCust',
@@ -123,10 +140,81 @@ $ (function c1_statCust(){
         }
     }); 
 });
-/*
-function _statCust(response, renderDiv) {  
-    $(renderDiv).html(response);       
-}*/
+
+$(function c1_statTime(){
+    $.ajax({
+        method:'get',
+        url:'c1_statTime',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c1_statTime';
+             _statTime(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c1_statDB(){
+    $.ajax({
+        method:'get',
+        url:'c1_statDB',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c1_statDB';
+            _statDB(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c1_statLongTime(){
+    $.ajax({
+        method:'get',
+        url:'c1_statLongTime',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c1_statLongTime';
+             _statLongTime(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c1_statHighDB(){
+    $.ajax({
+        method:'get',
+        url:'c1_statHighDB',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c1_statHighDB';
+             _statHighDB(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c1_eachCust_signal(){
+    $.ajax({
+        method:'get',
+        url:'c1_eachCust_signal',
+        success:function(response){
+             alert(response);
+             var renderDiv = '#c1_eachCust_signal';
+             //_eachCust_signal(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
 //---------------------------------------------------Sensor 02 -----------------
 //------------------------------------------------------------------------------
 $(function c2_numOfVisits() {   
@@ -407,10 +495,25 @@ $ (function c4_statCust(){
 function _statReenter(response, renderDiv) {  
     $(renderDiv).html(response);       
 }
-
 function _statCust(response, renderDiv) {  
     $(renderDiv).html(response);       
 }
+function _statTime(response, renderDiv) {  
+    $(renderDiv).html(response);       
+}
+function _statDB(response, renderDiv) { 
+    var myObject;
+    myObject = JSON.parse(response);
+    $(renderDiv).html(myObject); 
+}
+function _statLongTime(response, renderDiv) {  
+    $(renderDiv).html(response);       
+}
+function _statHighDB(response, renderDiv) {  
+    var myObject;
+    myObject = JSON.parse(response);
+    $(renderDiv).html(myObject);       
+}  
 //------------------------------------ graphic common functions -- -------------
 //------------------------------------------------------------------------------ 
 function _numOfVisits(response, renderDiv) { 
@@ -494,7 +597,7 @@ function _avgSignal(response, renderDiv){
             title: {
                 text: 'Reception strength over 10 minutes'
             },
-            colors: ['#66ccff', '#0392cf', '#7bc043', '#ffcf40', '#FF8F0B'],
+            colors: ['#FF8F0B', '#ffcf40', '#7bc043', '#0392cf', '#66ccff'],
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
             },
@@ -605,7 +708,7 @@ function _avgMins(response, renderDiv){
 
     for( var x in myObject){
         var newElement = {}; 
-        newElement = [myObject[x].hash_address,myObject[x].avgMin];
+        newElement = [myObject[x].hash_address,myObject[x].timing];
         toChart.push(newElement);
     }  
     //alert(JSON.stringify(toChart));
@@ -660,71 +763,5 @@ function _avgMins(response, renderDiv){
             }]
     }); 
 }
-
-
-//data: [{ name: 'Microsoft Internet Explorer', y: 56.33 }],
-//data: [ ['Shanghai', 23.7]],
-//series: [{name: 'Installation',data: [43934, 52503, 57177]}]
-//series: [{name: 'John', data: [5, 3, 4, 7, 2]}]
-
-
-$(function test(){
-    $.ajax({
-        method:'get',
-        url:'test',
-        success:function(response){
-        //alert(response);
-            
-        var myObject = JSON.parse(response);//obj to js
-        //alert(myObject[0].hash_address);
+ 
         
-        var associativeArray = [];
-        
-        for( var x =0; x < myObject.length; x++){
-              var newElement = {};
-              newElement['name'] = myObject[x].hash_address;
-              newElement['y'] = myObject[x].time_sec;
-              associativeArray.push(newElement);
-        }
-        //alert(JSON.stringify(associativeArray));
-        
-        var options = Highcharts.chart({
-     // Build the chart
-     
-            chart: {
-                renderTo: 'test',
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false,
-                type: 'pie'
-            },
-            title: {
-                text: 'Grafica publicaciones'
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: false
-                    },
-                    showInLegend: true
-                }
-            },
-            legend: {
-                layout: 'horizontal',
-                itemMarginTop: 3,
-                itemMarginBottom: 3
-            },
-            series: [{
-                name: 'Brands',
-                colorByPoint: true,
-                data: associativeArray
-                }]    
-             }); //end of options   
-        } //end of success
-    }); //end of ajax
-});
