@@ -29,7 +29,7 @@
       </div>
      <div class="row">   
         <div class="col-sm-8 col-sm-offset-2"> 
-         <h5>Customer time in Store Sensor-4</h5>
+         <h5>Customer time in Store Sensor-4 (High decibel means away from sensor)</h5>
          <div class="well graph" id="c4_timeSignal"></div>
         </div>
       </div>

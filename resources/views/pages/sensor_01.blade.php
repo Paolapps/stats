@@ -29,7 +29,7 @@
       </div>
      <div class="row">   
         <div class="col-sm-8 col-sm-offset-2"> 
-         <h5>Reception strength over time Sensor-1 (When high points mean away from sensor)</h5>
+         <h5>Reception strength over time Sensor-1 (High decibel means away from sensor)</h5>
          <div class="well graph" id="c1_timeSignal"></div>
         </div>
       </div>

@@ -18,7 +18,7 @@ class Sensor_01_Controller extends Controller
       group by hash_address order by newSignal DESC*/ 
     public function min_01(){
         $data_min_1 =  \DB::table('corner01_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'), 
                             DB::raw('round(avg(signal_db*-1))as newSignal'))
                     ->where('time_sec', '>', 1)
                     ->where('time_sec', '<', 60)
@@ -560,58 +560,134 @@ class Sensor_01_Controller extends Controller
         
         return json_encode(sizeof($custReturn));
     }
-    
-    public function c1_eachCust_signal() {
-    
+   
+    public function signal_veryHigh() {
         $all_data_min = Sensor_01_Controller::joinDataMin();//queries join 10 min
         $totalRows = count($all_data_min);
-        $veryHigh = array();
-        $high = array();
-        $moderate = array();
-        $low = array();
-        $veryLow= array();
+        $veryHigh= array();
 
-        for ($x = 0; $x < $totalRows; $x++){  
-            switch ($all_data_min[$x]->newSignal) {
-                case (($all_data_min[$x]->newSignal) <= 33 ):
-                    array_push($veryHigh, 
+        for ($x = 0; $x < $totalRows; $x++){
+            if(($all_data_min[$x]->newSignal)<= 33){
+                array_push($veryHigh, 
                      array('hash_address'=>$all_data_min[$x],'newSignal'=>$all_data_min[$x])); 
-                    break;
-                case (($all_data_min[$x]->newSignal) > 33 && ($all_data_min[$x]->newSignal) <= 47):
-                     array_push($high, 
-                   array('hash_address'=>$all_data_min[$x],'newSignal'=>$all_data_min[$x])); 
-                    break;
-                case (($all_data_min[$x]->newSignal) > 47 && ($all_data_min[$x]->newSignal) <= 62):
-                     array_push($moderate, 
-                   array('hash_address'=>$all_data_min[$x],'newSignal'=>$all_data_min[$x])); 
-                    break;
-                case (($all_data_min[$x]->newSignal) > 62 && ($all_data_min[$x]->newSignal) <= 76 ):
-                    array_push($low, 
-                   array('hash_address'=>$all_data_min[$x],'newSignal'=>$all_data_min[$x])); 
-                    break;
-                case (($all_data_min[$x]->newSignal) > 76 && ($all_data_min[$x]->newSignal) < 90 ):
-                    array_push($veryLow, 
-                   array('hash_address'=>$all_data_min[$x],'newSignal'=>$all_data_min[$x])); 
-                    break; 
-                default :         
-               }
-          
-        }    
-        return json_encode(count($low));
+            }   
+        } 
+        return $veryHigh;
     }
     
-}
-// $decibels = Sensor_01_Controller::generalSignal();
-   // public function col_dB_min_01(){
-      /*  $data_min_1 = Sensor_01_Controller::min_01();
-        return $dB_1 = array_column($data_min_1, 'newSignal');*/
-
-  /*for ($i=0; $i<$totalCust; $i++ ){
-            //if customer is in min array
-            if (in_array($decibels[$i], $decibels)){
-                
-            }
-        }*/      
-       
+    public function signal_high() {
+        $all_data_min = Sensor_01_Controller::joinDataMin();//queries join 10 min
+        $totalRows = count($all_data_min);
+        $high = array();
+        
+        for ($x = 0; $x < $totalRows; $x++){
+            if(($all_data_min[$x]->newSignal) > 33 && ($all_data_min[$x]->newSignal) <= 47){
+                array_push($high, 
+                   array('hash_address'=>$all_data_min[$x],'newSignal'=>$all_data_min[$x])); 
+            }   
+        }
+        return $high;
+    }
     
+    public function signal_moderate() {
+        $all_data_min = Sensor_01_Controller::joinDataMin();//queries join 10 min
+        $totalRows = count($all_data_min);
+        $moderate = array();
+        
+        for ($x = 0; $x < $totalRows; $x++){
+            if(($all_data_min[$x]->newSignal) > 47 && ($all_data_min[$x]->newSignal) <= 62){
+                 array_push($moderate, 
+                   array('hash_address'=>$all_data_min[$x],'newSignal'=>$all_data_min[$x])); 
+            }   
+        }
+        return $moderate;
+    }
+    public function signal_low() {
+        $all_data_min = Sensor_01_Controller::joinDataMin();//queries join 10 min
+        $totalRows = count($all_data_min);
+        $low = array();
+        
+        for ($x = 0; $x < $totalRows; $x++){
+            if(($all_data_min[$x]->newSignal) > 62 && ($all_data_min[$x]->newSignal) <= 76 ){
+                 array_push($low, 
+                   array('hash_address'=>$all_data_min[$x],'newSignal'=>$all_data_min[$x])); 
+            }   
+        }
+        return $low;
+    }
+    public function signal_veryLow() {
+        $all_data_min = Sensor_01_Controller::joinDataMin();//queries join 10 min
+        $totalRows = count($all_data_min);
+        $veryLow = array();
+        
+        for ($x = 0; $x < $totalRows; $x++){
+            if(($all_data_min[$x]->newSignal) > 76 && ($all_data_min[$x]->newSignal) < 90 ){
+                 array_push($veryLow, 
+                   array('hash_address'=>$all_data_min[$x],'newSignal'=>$all_data_min[$x]));  
+            }   
+        }
+        return $veryLow;
+    }
+    
+    public function count_veryLow(){
+         $veryLow = Sensor_01_Controller::signal_veryLow();
+         return $veryLowFinal;
+    }
+    
+    public function count_Low(){
+        $low = Sensor_01_Controller::signal_low(); 
+        $leng = count($moderate);
+        $count = 0;
+        $moderateFinal = array();
+       
+        for ($i=0; $i<$leng; $i++ ){
+            if($moderate){
+                $count++;
+                array_push($moderateFinal, 
+                   array('hash_address'=>$moderate[$i],'moderate_min'=>$count)); 
+            }
+        }
+          return $lowFinal;
+    }
+    public function count_moderate(){
+        $moderate = Sensor_01_Controller::signal_moderate();
+ 
+        $leng = count($moderate);
+        $count = 0;
+        $moderateFinal = array();
+       
+        for ($i=0; $i<$leng; $i++ ){
+            if($moderate){
+                $count++;
+                $moderateFinal = ['hash_address'=>$moderate[$i],'moderate_min'=>$count]; 
+            }
+        }
+         return $moderateFinal;
+    }
+    public function count_High(){
+         $high = Sensor_01_Controller::signal_high(); 
+         return $highFinal;
+    }
+     public function count_veryHigh(){
+         $veryHigh = Sensor_01_Controller::signal_veryHigh();
+         return $veryHighFinal;
+    }
+    
+   /* public function c1_eachCust_signal() {
+        //$veryLowFinal = Sensor_01_Controller::count_veryLow();
+       // $lowFinal = Sensor_01_Controller::count_low();
+        $data_min_1 = Sensor_01_Controller::min_01();
+        $all_data_min = Sensor_01_Controller::joinDataMin();
+        $moderate = Sensor_01_Controller::signal_moderate();
+        $moderateFinal = Sensor_01_Controller::count_moderate();
+        //$highFinal = Sensor_01_Controller::count_High();
+        //$veryHighFinal = Sensor_01_Controller::count_veryHigh();
+        var_dump($moderateFinal);
+       // return json_encode($moderateFinal);
+    }*/
+}
+    
+       
+   
+     
    

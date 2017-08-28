@@ -31,7 +31,7 @@ Route::get('c1_statHighDB', 'Sensor_01_Controller@c1_statHighDB');
 Route::get('c1_statBusyTime', 'Sensor_01_Controller@c1_statBusyTime');
 Route::get('c1_statReenter', 'Sensor_01_Controller@c1_statReenter');
 //stats customers
-Route::get('c1_eachCust_signal', 'Sensor_01_Controller@c1_eachCust_signal');
+
 
 
 //------------------------------------------------------Sensor 02 routes--------

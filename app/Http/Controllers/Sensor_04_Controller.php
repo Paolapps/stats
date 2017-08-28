@@ -17,7 +17,7 @@ class Sensor_04_Controller extends Controller
       group by hash_address order by newSignal DESC*/ 
     public function min_01(){
         $data_min_1 =  \DB::table('corner04_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'),
+                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'), 
                             DB::raw('round(avg(signal_db*-1))as newSignal'))
                     ->where('time_sec', '>', 1)
                     ->where('time_sec', '<', 60)
@@ -166,8 +166,7 @@ class Sensor_04_Controller extends Controller
          $data_min_10 = Sensor_04_Controller::min_10();
          return $numCust_10 = count($data_min_10);    
     }
-    
-    //-------------------------- functions get column Signal_db min ------------
+    //-------------------  functions get column Signal_db min COMMON------------
     //--------------------------------------------------------------------------
     public function col_dB_min_01(){
         $data_min_1 = Sensor_04_Controller::min_01();
@@ -210,7 +209,7 @@ class Sensor_04_Controller extends Controller
         return $dB_10 = array_column($data_min_10, 'newSignal');
     }
   
-    //-------------------------- functions decibels AVERAGE min ----------------
+    //------------------- functions decibels AVERAGE min COMMON ----------------
     //--------------------------------------------------------------------------
     public function signal_min_01(){
         $dB_1 = Sensor_04_Controller::col_dB_min_01();
@@ -263,11 +262,11 @@ class Sensor_04_Controller extends Controller
         return $avgSignal_10 = round(array_sum($dB_10)/$numCust_10);
     }
     
-    //---------------- COMMON function generate time per person ----------------
+    //--------------------------------------- general FUNCTIONS ----------------
     //--------------------------------------------------------------------------
     public function generalTime() {
         /*SELECT hash_address, round((max(time_sec)-min(time_sec))/60) as realTime 
-            FROM `corner01_inputs` group by hash_address */
+            FROM `corner04_inputs` group by hash_address */
          $custTime = \DB::table('corner04_inputs')
                     ->select('hash_address', 
         		DB::raw('round((max(time_sec) - min(time_sec))/60) as timing'))
@@ -275,29 +274,62 @@ class Sensor_04_Controller extends Controller
                     ->get()->toArray();
          return $custTime;
     }
-
-    public function c4_timeSignal(){  
     
-     $avgSignal_1 = Sensor_04_Controller::signal_min_01();
-     $avgSignal_2 = Sensor_04_Controller::signal_min_02();
-     $avgSignal_3 = Sensor_04_Controller::signal_min_03();
-     $avgSignal_4 = Sensor_04_Controller::signal_min_04();
-     $avgSignal_5 = Sensor_04_Controller::signal_min_05();
-     $avgSignal_6 = Sensor_04_Controller::signal_min_06(); 
-     $avgSignal_7 = Sensor_04_Controller::signal_min_07(); 
-     $avgSignal_8 = Sensor_04_Controller::signal_min_08();
-     $avgSignal_9 = Sensor_04_Controller::signal_min_09(); 
-     $avgSignal_10 = Sensor_04_Controller::signal_min_10();
+    public function generalSignal() {
+        $decibels = \DB::table('corner04_inputs')
+        	    ->select('hash_address', DB::raw('(round(avg(signal_db))*-1) as avgSignal'))
+                    ->groupBy('hash_address')
+                    ->orderBy('avgSignal', 'DESC')
+                    ->get()->toArray();
+        return $decibels;            
+    }
+    
+    public function timeSignal() {
+        //arrays average Signal per minute
+        $avgSignal_1 = Sensor_04_Controller::signal_min_01();
+        $avgSignal_2 = Sensor_04_Controller::signal_min_02();
+        $avgSignal_3 = Sensor_04_Controller::signal_min_03();
+        $avgSignal_4 = Sensor_04_Controller::signal_min_04();
+        $avgSignal_5 = Sensor_04_Controller::signal_min_05();
+        $avgSignal_6 = Sensor_04_Controller::signal_min_06(); 
+        $avgSignal_7 = Sensor_04_Controller::signal_min_07(); 
+        $avgSignal_8 = Sensor_04_Controller::signal_min_08();
+        $avgSignal_9 = Sensor_04_Controller::signal_min_09(); 
+        $avgSignal_10 = Sensor_04_Controller::signal_min_10();
 
-     $dB_min = array();
-     $dB_min = [$avgSignal_1, $avgSignal_2, $avgSignal_3, $avgSignal_4,
-                    $avgSignal_5, $avgSignal_6, $avgSignal_7, $avgSignal_8, 
-                    $avgSignal_9, $avgSignal_10];
-      
-     return json_encode($dB_min);    
+        $dB_min = array($avgSignal_1, $avgSignal_2, $avgSignal_3, $avgSignal_4,
+                       $avgSignal_5, $avgSignal_6, $avgSignal_7, $avgSignal_8, 
+                       $avgSignal_9, $avgSignal_10);
+        return $dB_min;
+    }
+    
+    public function joinDataMin(){
+        $data_min_1 = Sensor_04_Controller::min_01();
+        $data_min_2 = Sensor_04_Controller::min_02();
+        $data_min_3 = Sensor_04_Controller::min_03();
+        $data_min_4 = Sensor_04_Controller::min_04();
+        $data_min_5 = Sensor_04_Controller::min_05();
+        $data_min_6 = Sensor_04_Controller::min_06();
+        $data_min_7 = Sensor_04_Controller::min_07();
+        $data_min_8 = Sensor_04_Controller::min_08();
+        $data_min_9 = Sensor_04_Controller::min_09();
+        $data_min_10 = Sensor_04_Controller::min_10();
+        
+        $all_data_min = array_merge($data_min_1, $data_min_2, $data_min_3, 
+                $data_min_4, $data_min_5, $data_min_6, $data_min_7, $data_min_8, 
+                $data_min_9, $data_min_10);
+        return $all_data_min; 
+     
+    }
+    
+    //------------------------------------------- JSON functions ---------------
+    //--------------------------------------------------------------------------
+    public function c4_timeSignal(){  
+        $dB_min = Sensor_04_Controller::timeSignal();
+        return json_encode($dB_min);    
     }
     public function c4_numOfVisits(){
-        
+        //arrays counting data query of each minute
         $numCust_1 = Sensor_04_Controller::count_min_01();
         $numCust_2 = Sensor_04_Controller::count_min_02();
         $numCust_3 = Sensor_04_Controller::count_min_03();
@@ -309,7 +341,6 @@ class Sensor_04_Controller extends Controller
         $numCust_9 = Sensor_04_Controller::count_min_09();
         $numCust_10 = Sensor_04_Controller::count_min_10();
         
-        $visits_min = array();
         $visits_min = [$numCust_1, $numCust_2, $numCust_3, $numCust_4,
                     $numCust_5, $numCust_6, $numCust_7, $numCust_8, $numCust_9,
                     $numCust_10];
@@ -319,122 +350,133 @@ class Sensor_04_Controller extends Controller
  
     public function c4_avgSignal(){
       
-        $decibels = \DB::table('corner04_inputs')
-        	    ->select('hash_address', DB::raw('round(avg(signal_db)) as avgSignal'))
-                    ->groupBy('hash_address')
-                    ->orderBy('avgSignal', 'DESC')
-                    ->get()->toArray();
-        
+        $decibels = Sensor_04_Controller::generalSignal();
         $countdB = count($decibels);
         $colAvgSignal = array_column($decibels,'avgSignal');
-        $positiveDB = array();
         $countCust1 = 0;
         $countCust2 = 0;
         $countCust3 = 0;
         $countCust4 = 0;
         $countCust5 = 0;
-        
-        $dB_levels = array();
-        
-        for($i=0; $i < $countdB; $i++ ){    
-            array_push($positiveDB, abs($colAvgSignal[$i]));
-        }
-
+      
+        //check levels of signal, count avg level per minute
         for($i=0; $i < $countdB; $i++ ){ 
-            switch ($positiveDB) {
-                case ($positiveDB[$i] <= 19 ):
+            switch ($colAvgSignal) {
+                case ($colAvgSignal[$i] <= 33 ):
                     $countCust1++;
                     break;
-                case ($positiveDB[$i] > 19 && $positiveDB[$i] <= 37):
+                case ($colAvgSignal[$i] > 33 && $colAvgSignal[$i] <= 47):
                     $countCust2++;
                     break;
-                case ($positiveDB[$i] > 37 && $positiveDB[$i] <= 55):
+                case ($colAvgSignal[$i] > 47 && $colAvgSignal[$i] <= 62):
                     $countCust3++;
                     break;
-                case ($positiveDB[$i] > 55 && $positiveDB[$i] <= 72 ):
+                case ($colAvgSignal[$i] > 62 && $colAvgSignal[$i] <= 76 ):
                     $countCust4++;
                     break;
-                case ($positiveDB[$i] > 72 && $positiveDB[$i] <= 90 ):
+                case ($colAvgSignal[$i] > 76 && $colAvgSignal[$i] < 90 ):
                     $countCust5++;
                     break;        
             }
         }
-        
+        //structuring object to be sent
         $dB_levels = array(
-            ['name' => 'Very low', 'y' => $countCust1],
-            ['name' => 'Low', 'y' => $countCust2],
+            ['name' => 'Very high', 'y' => $countCust1],
+            ['name' => 'High', 'y' => $countCust2],
             ['name' => 'Moderate', 'y' => $countCust3],
-            ['name' => 'High', 'y' => $countCust4],
-            ['name' => 'Very high', 'y' => $countCust5]
+            ['name' => 'Low', 'y' => $countCust4],
+            ['name' => 'Very low', 'y' => $countCust5]
         );
         return json_encode($dB_levels); 
-        /*  SELECT hash_address, round(avg(signal_db)) as avgSignal
-            FROM `corner04_inputs` 
-            GROUP by hash_address
-            order by avgSignal DESC*/
     }
     
-    //group hash_address e intervalos de tiempo with average time in store
-    public function c4_avgMins(){
+    // average time in store per person
+    public function c4_avgMins(){       
         $custTime = Sensor_04_Controller::generalTime();
         return json_encode($custTime); 
     }  
     
-    //total customers per sensor
-    public function c4_statCust(){
-         $visitors = \DB::table('corner04_inputs')
-                    ->get()->keyBy('hash_address');
-         $totalVisitors = count($visitors);
+    //----------------------------------------fuctions ONE SINGLE DATA----------
+    //--------------------------------------------------------------------------
+    public function c4_statCust(){ //------------------total customers in sensor
+        $custTime = Sensor_04_Controller::generalTime(); 
+        $visitors = array_column($custTime,'hash_address');
+        $totalVisitors = count($visitors);
         return response()->json($totalVisitors);
     }
-                
-    //average time
-    public function c4_statTime(){
-        $time = \DB::table('corner04_inputs')
-                    ->select('hash_address', DB::raw('(round(avg(time_sec)/60)) as avgMin'))
-                    ->groupBy('hash_address')
-                    ->get()->toArray();
-        $totalTime = count($time);
-        $colTime = array_column($time,'avgMin');
-        //loop, sumar y dividir en count
-        return response()->json($totalTime);
-    }
-    //average signal 
-    public function c4_statDB(){
-        $decibels = \DB::table('corner04_inputs')
-        	    ->select('hash_address', DB::raw('round(avg(signal_db)) as avgSignal'))
-                    ->groupBy('hash_address')
-                    ->orderBy('avgSignal', 'DESC')
-                    ->get()->toArray();
-        //loop, sumar y dividir en count
-        $countdB = count($decibels);
-        $colDB = array_column($decibels,'avgSignal');
-       
-        return response()->json($colDB); 
-    }
     
+    public function c4_statTime(){//--------------------- average time in sensor
+        $custTime = Sensor_04_Controller::generalTime();
+        $colTime = array_column($custTime,'timing');
+        $avgGeneralTime = round(array_sum($colTime)/ count($colTime));
+        return json_encode($avgGeneralTime);
+    }
+  
+    public function c4_statDB(){//----------------------average signal in sensor
+        
+        $dB_min = Sensor_04_Controller::timeSignal();
+        $avgGeneralSignal = round(array_sum($dB_min)/count($dB_min));
+        $level;
+        
+         switch ($avgGeneralSignal) {
+                case ($avgGeneralSignal <= 33 ):
+                    $level = "Very high";
+                    break;
+                case ($avgGeneralSignal > 33 && $avgGeneralSignal <= 47):
+                     $level = "High";
+                    break;
+                case ($avgGeneralSignal > 47 && $avgGeneralSignal <= 62):
+                     $level = "Moderate";
+                    break;
+                case ($avgGeneralSignal > 62 && $avgGeneralSignal <= 76 ):
+                     $level = "Very low";
+                    break;
+                case ($avgGeneralSignal > 76 && $avgGeneralSignal < 90 ):
+                    $level = "Low";
+                    break; 
+                default :
+                    $level = "Out of range";
+            }
+ 
+        return json_encode($level);
+    }
+  
     //longest time in the store
     public function c4_statLongTime(){
-        $result = \DB::table('corner04_inputs')
-                    
-        			->select('hash_address', DB::raw('count(*) as total'), 
-        				DB::raw('max(time_sec) as max'),
-        				DB::raw('min(time_sec) as min'),
-        				DB::raw('max(time_sec) - min(time_sec) as timing'))
-                    ->groupBy('hash_address')
-                    ->orderBy('timing', 'DESC')
-                    ->get();
+        $custTime = Sensor_04_Controller::generalTime();
+        $colTime = array_column($custTime,'timing');
+        $maxTime = max($colTime);
+        return json_encode($maxTime);
     }
     
     //best reception
     public function c4_statHighDB(){
+        $dB_min = Sensor_04_Controller::timeSignal();
+        $maxSignal = max($dB_min);
         
-    }
-    //bussiest time
-    public function c4_statBusyTime(){
+        switch ($maxSignal) {
+                case ($maxSignal <= 33 ):
+                    $level = "Very high";
+                    break;
+                case ($maxSignal > 33 && $maxSignal <= 47):
+                     $level = "High";
+                    break;
+                case ($maxSignal > 47 && $maxSignal <= 62):
+                     $level = "Moderate";
+                    break;
+                case ($maxSignal > 62 && $maxSignal <= 76 ):
+                     $level = "Low";
+                    break;
+                case ($maxSignal > 76 && $maxSignal < 90 ):
+                    $level = "Very low";
+                    break; 
+                default :
+                    $level = "Out of range";
+        }
         
+        return json_encode($level);
     }
-    
+
     // person more than one time in the store
     public function c4_statReenter(){
         //arrays queries per minute
@@ -517,7 +559,6 @@ class Sensor_04_Controller extends Controller
         
         return json_encode(sizeof($custReturn));
     }
-   
 }
 
 

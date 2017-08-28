@@ -201,20 +201,7 @@ $(function c1_statHighDB(){
     }); 
 });
 
-$(function c1_eachCust_signal(){
-    $.ajax({
-        method:'get',
-        url:'c1_eachCust_signal',
-        success:function(response){
-             alert(response);
-             var renderDiv = '#c1_eachCust_signal';
-             //_eachCust_signal(response, renderDiv);    
-        }, 
-        error:function(response){
-            alert("Error Connecting to Webservice.\nTry again.");
-        }
-    }); 
-});
+
 //---------------------------------------------------Sensor 02 -----------------
 //------------------------------------------------------------------------------
 $(function c2_numOfVisits() {   
@@ -307,6 +294,67 @@ $ (function c2_statCust(){
         }
     }); 
 });
+
+$(function c2_statTime(){
+    $.ajax({
+        method:'get',
+        url:'c2_statTime',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c2_statTime';
+             _statTime(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c2_statDB(){
+    $.ajax({
+        method:'get',
+        url:'c2_statDB',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c2_statDB';
+            _statDB(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c2_statLongTime(){
+    $.ajax({
+        method:'get',
+        url:'c2_statLongTime',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c2_statLongTime';
+             _statLongTime(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c2_statHighDB(){
+    $.ajax({
+        method:'get',
+        url:'c2_statHighDB',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c2_statHighDB';
+             _statHighDB(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
 //---------------------------------------------------Sensor 03 -----------------
 //------------------------------------------------------------------------------
 $(function c3_numOfVisits() {   
@@ -399,6 +447,67 @@ $ (function c3_statCust(){
         }
     }); 
 });
+
+$(function c3_statTime(){
+    $.ajax({
+        method:'get',
+        url:'c3_statTime',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c3_statTime';
+             _statTime(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c3_statDB(){
+    $.ajax({
+        method:'get',
+        url:'c3_statDB',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c3_statDB';
+            _statDB(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c3_statLongTime(){
+    $.ajax({
+        method:'get',
+        url:'c3_statLongTime',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c3_statLongTime';
+             _statLongTime(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c3_statHighDB(){
+    $.ajax({
+        method:'get',
+        url:'c3_statHighDB',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c3_statHighDB';
+             _statHighDB(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
 //---------------------------------------------------Sensor 04 -----------------
 //------------------------------------------------------------------------------
 $(function c4_numOfVisits() {   
@@ -484,6 +593,66 @@ $ (function c4_statCust(){
              //alert(response);
              var renderDiv = '#c4_statCust';
              _statCust(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c4_statTime(){
+    $.ajax({
+        method:'get',
+        url:'c4_statTime',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c4_statTime';
+             _statTime(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c4_statDB(){
+    $.ajax({
+        method:'get',
+        url:'c4_statDB',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c4_statDB';
+            _statDB(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c4_statLongTime(){
+    $.ajax({
+        method:'get',
+        url:'c4_statLongTime',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c4_statLongTime';
+             _statLongTime(response, renderDiv);    
+        }, 
+        error:function(response){
+            alert("Error Connecting to Webservice.\nTry again.");
+        }
+    }); 
+});
+
+$(function c4_statHighDB(){
+    $.ajax({
+        method:'get',
+        url:'c4_statHighDB',
+        success:function(response){
+             //alert(response);
+             var renderDiv = '#c4_statHighDB';
+             _statHighDB(response, renderDiv);    
         }, 
         error:function(response){
             alert("Error Connecting to Webservice.\nTry again.");
