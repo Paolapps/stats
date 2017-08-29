@@ -88,9 +88,11 @@ $(function c1_avgSignal(){
            var renderDiv = 'c1_avgSignal';
            _avgSignal(response, renderDiv); 
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -103,9 +105,11 @@ $(function c1_timeSignal(){
             var renderDiv = 'c1_timeSignal';
             _timeSignal(response, renderDiv)   
         }, 
-        error:function(response){
-          // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
     
 });
@@ -119,9 +123,11 @@ $(function c1_avgMins(){
             var renderDiv = 'c1_avgMins';
             _avgMins(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -134,9 +140,11 @@ $(function c1_statReenter(){
              var renderDiv = '#c1_statReenter';
             _statReenter(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -149,9 +157,11 @@ $(function c1_statCust(){
              var renderDiv = '#c1_statCust';
              _statCust(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -164,9 +174,11 @@ $(function c1_statTime(){
              var renderDiv = '#c1_statTime';
              _statTime(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -179,9 +191,11 @@ $(function c1_statDB(){
              var renderDiv = '#c1_statDB';
             _statDB(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -194,9 +208,11 @@ $(function c1_statLongTime(){
              var renderDiv = '#c1_statLongTime';
              _statLongTime(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -209,9 +225,11 @@ $(function c1_statHighDB(){
              var renderDiv = '#c1_statHighDB';
              _statHighDB(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -227,9 +245,11 @@ $(function c2_numOfVisits() {
            var renderDiv = 'c2_numOfVisits';
            _numOfVisits(response, renderDiv); 
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -242,9 +262,11 @@ $(function c2_avgSignal(){
            var renderDiv = 'c2_avgSignal';
            _avgSignal(response, renderDiv); 
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -257,9 +279,11 @@ $(function c2_timeSignal(){
             var renderDiv = 'c2_timeSignal';
             _timeSignal(response, renderDiv)   
         }, 
-        error:function(response){
-          // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
     
 });
@@ -273,9 +297,11 @@ $(function c2_avgMins(){
             var renderDiv = 'c2_avgMins';
             _avgMins(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -288,9 +314,11 @@ $(function c2_statReenter(){
              var renderDiv = '#c2_statReenter';
             _statReenter(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -303,9 +331,11 @@ $ (function c2_statCust(){
              var renderDiv = '#c2_statCust';
              _statCust(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -318,9 +348,11 @@ $(function c2_statTime(){
              var renderDiv = '#c2_statTime';
              _statTime(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -333,9 +365,11 @@ $(function c2_statDB(){
              var renderDiv = '#c2_statDB';
             _statDB(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -348,9 +382,11 @@ $(function c2_statLongTime(){
              var renderDiv = '#c2_statLongTime';
              _statLongTime(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -363,9 +399,11 @@ $(function c2_statHighDB(){
              var renderDiv = '#c2_statHighDB';
              _statHighDB(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -380,9 +418,11 @@ $(function c3_numOfVisits() {
            var renderDiv = 'c3_numOfVisits';
            _numOfVisits(response, renderDiv); 
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -395,9 +435,11 @@ $(function c3_avgSignal(){
            var renderDiv = 'c3_avgSignal';
            _avgSignal(response, renderDiv); 
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -410,9 +452,11 @@ $(function c3_timeSignal(){
             var renderDiv = 'c3_timeSignal';
             _timeSignal(response, renderDiv)   
         }, 
-        error:function(response){
-          // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
     
 });
@@ -426,9 +470,11 @@ $(function c3_avgMins(){
             var renderDiv = 'c3_avgMins';
             _avgMins(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -441,9 +487,11 @@ $(function c3_statReenter(){
              var renderDiv = '#c3_statReenter';
             _statReenter(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -456,9 +504,11 @@ $ (function c3_statCust(){
              var renderDiv = '#c3_statCust';
              _statCust(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -471,9 +521,11 @@ $(function c3_statTime(){
              var renderDiv = '#c3_statTime';
              _statTime(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -486,9 +538,11 @@ $(function c3_statDB(){
              var renderDiv = '#c3_statDB';
             _statDB(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -501,9 +555,11 @@ $(function c3_statLongTime(){
              var renderDiv = '#c3_statLongTime';
              _statLongTime(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -516,9 +572,11 @@ $(function c3_statHighDB(){
              var renderDiv = '#c3_statHighDB';
              _statHighDB(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -533,9 +591,11 @@ $(function c4_numOfVisits() {
            var renderDiv = 'c4_numOfVisits';
            _numOfVisits(response, renderDiv); 
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -548,9 +608,11 @@ $(function c4_avgSignal(){
            var renderDiv = 'c4_avgSignal';
            _avgSignal(response, renderDiv); 
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -563,9 +625,11 @@ $(function c4_timeSignal(){
             var renderDiv = 'c4_timeSignal';
             _timeSignal(response, renderDiv)   
         }, 
-        error:function(response){
-          // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     });    
 });
 
@@ -578,9 +642,11 @@ $(function c4_avgMins(){
             var renderDiv = 'c4_avgMins';
             _avgMins(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -593,9 +659,11 @@ $(function c4_statReenter(){
              var renderDiv = '#c4_statReenter';
             _statReenter(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -608,9 +676,11 @@ $ (function c4_statCust(){
              var renderDiv = '#c4_statCust';
              _statCust(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -623,9 +693,11 @@ $(function c4_statTime(){
              var renderDiv = '#c4_statTime';
              _statTime(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -638,9 +710,11 @@ $(function c4_statDB(){
              var renderDiv = '#c4_statDB';
             _statDB(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -653,9 +727,11 @@ $(function c4_statLongTime(){
              var renderDiv = '#c4_statLongTime';
              _statLongTime(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
@@ -668,9 +744,11 @@ $(function c4_statHighDB(){
              var renderDiv = '#c4_statHighDB';
              _statHighDB(response, renderDiv);    
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 //------------------------------ retrieving data common functions --------------
