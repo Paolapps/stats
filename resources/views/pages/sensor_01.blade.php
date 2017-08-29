@@ -42,7 +42,7 @@
 
      <div class="row">   
         <div class="col-sm-8 col-sm-offset-2"> 
-          <h5>Customer time in Store Sensor-1 (Values lest than 0 are not displayed)</h5>
+          <h5>Customer time in Store Sensor-1 (Values less than 0 are not displayed)</h5>
           <div class="well graph" id="c1_avgMins"></div>
         </div>
       </div>
