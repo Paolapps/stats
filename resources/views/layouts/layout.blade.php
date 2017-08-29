@@ -11,13 +11,11 @@
         
         <title>Kepler Stats</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-        <script src="https://use.fontawesome.com/fdb3ab1e60.js"></script>
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
-        <link href="{{URL::asset('css/main.css')}}" rel="stylesheet">
         
+        <link href="{{URL::asset('css/main.css')}}" rel="stylesheet">
+
         <script>
             window.Laravel =
             <?php echo json_encode([
@@ -67,18 +65,23 @@
         </div>
         
         <!------------------------------------------scripts ---------------------------->
-        
+ 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
                 accesskey=""integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
         crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script type="text/javascript" src="{{URL::asset('js/main.js')}}"></script>
         
        
+        
+    </body>    
+</html>
+      
         <!--<script src="Highcharts-5.0.14/code/highcharts.js"></script>-->
         <!--<script src="Highcharts-5.0.14/code/modules/exporting.js"></script>-->
-        <script src="http://code.highcharts.com/highcharts.js"></script>
+        
         <!--<script src="js/highcharts.js"></script>-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="{{URL::asset('js/main.js')}}"></script>
-    </body>
-</html>
+        
+        

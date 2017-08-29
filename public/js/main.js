@@ -71,9 +71,11 @@ $(function c1_numOfVisits() {
            var renderDiv = 'c1_numOfVisits';
            _numOfVisits(response, renderDiv); 
         }, 
-        error:function(response){
-           // alert("Error Connecting to Webservice.\nTry again.");
-        }
+        error:function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           console.log(thrownError);
+       }
     }); 
 });
 
